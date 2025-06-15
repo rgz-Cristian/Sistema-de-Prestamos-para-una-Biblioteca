@@ -1,8 +1,4 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
+
 package modules;
 
 import java.util.ArrayList;
@@ -48,11 +44,13 @@ public class ServiciosBiblioteca implements IServiciosBiblioteca{
 
     }
 
+    @Override
     public ILibro buscarPorTitulo(String titulo) {
+        return libros.get(Collections.binarySearch(libros, new Libro(titulo, titulo, titulo, titulo, 0, true), new CriterioComparacionByAutor()));
     }
 
     @Override
     public ILibro buscarPorAutor(String autor) {
-        return libros.get(Collections.binarySearch(libros, new Libro(autor), new CriterioComparacionByAutor()));
+        return libros.get(Collections.binarySearch(libros, new Libro(autor, autor, autor, autor, 0, true), new CriterioComparacionByAutor()));
     }
 }
