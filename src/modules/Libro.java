@@ -19,7 +19,11 @@ public class Libro implements ILibro {
         this.genero = genero;
         this.Publicacion = Publicacion;
         this.isDisponible = isDisponible;
-    }    
+    }
+
+    public Libro(String autor){
+        this.autor = autor;
+    }
     
     @Override
     public String getIdLibro() {

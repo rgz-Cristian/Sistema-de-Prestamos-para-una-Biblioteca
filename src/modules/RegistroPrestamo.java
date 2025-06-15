@@ -44,6 +44,4 @@ public class RegistroPrestamo extends Registro{
     public void actualizarEstado() {
         this.libro.setIsDisponible(false);
     }
-
-    
 }

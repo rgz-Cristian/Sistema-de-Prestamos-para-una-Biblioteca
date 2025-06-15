@@ -5,7 +5,7 @@ import modules.Registro;
 
 public interface IServiciosBiblioteca {
     void registrarLibro(ILibro libro);
-    void addRegistro(Registro registroPrestamo);
+    void addRegistro(Registro registro);
     ILibro buscarPorTitulo(String titulo);
     ILibro buscarPorAutor(String autor);
 }

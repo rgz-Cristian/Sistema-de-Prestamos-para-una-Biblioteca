@@ -1,14 +1,35 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
+
 package modules;
 
-/**
- *
- * @author criss
- */
-public class Registro {
+import modules.interfacesmodules.ILibro;
+
+
+public abstract class Registro {
+    protected String idRegistro;
+    protected ILibro libro;
+
+    public Registro(String idRegistro, ILibro libro) {
+        this.idRegistro = idRegistro;
+        this.libro = libro;
+    }
     
+
+    public abstract void actualizarEstado();
+
+    public String getIdRegistro() {
+        return idRegistro;
+    }
+
+    public void setIdRegistro(String idRegistro) {
+        this.idRegistro = idRegistro;
+    }
+
+    public ILibro getLibro() {
+        return libro;
+    }
+
+    public void setLibro(ILibro libro) {
+        this.libro = libro;
+    }
+ 
 }
