@@ -9,15 +9,15 @@ public class Libro implements ILibro {
     private String titulo;
     private String autor;
     private String genero;
-    private int Publicacion;
+    private int publicacion;
     private boolean isDisponible;
 
-    public Libro(String idLibro, String titulo, String autor, String genero, int Publicacion, boolean isDisponible) {
+    public Libro(String idLibro, String titulo, String autor, String genero, int publicacion, boolean isDisponible) {
         this.idLibro = idLibro;
         this.titulo = titulo;
         this.autor = autor;
         this.genero = genero;
-        this.Publicacion = Publicacion;
+        this.publicacion = publicacion;
         this.isDisponible = isDisponible;
     }
     
@@ -64,12 +64,12 @@ public class Libro implements ILibro {
 
     @Override
     public int getPublicacion() {
-        return Publicacion;
+        return publicacion;
     }
 
     @Override
     public void setPublicacion(int Publicacion) {
-        this.Publicacion = Publicacion;
+        this.publicacion = Publicacion;
     }
 
     @Override
