@@ -5,6 +5,7 @@ import java.util.ArrayList;
 import java.util.Collections;
 import java.util.List;
 import modules.auxclass.CriterioComparacionByAutor;
+import modules.auxclass.CriterioComparacionByTitulo;
 import modules.interfacesmodules.ILibro;
 import modules.interfacesmodules.IServiciosBiblioteca;
 
@@ -46,7 +47,7 @@ public class ServiciosBiblioteca implements IServiciosBiblioteca{
 
     @Override
     public ILibro buscarPorTitulo(String titulo) {
-        return libros.get(Collections.binarySearch(libros, new Libro(titulo, titulo, titulo, titulo, 0, true), new CriterioComparacionByAutor()));
+        return libros.get(Collections.binarySearch(libros, new Libro(titulo, titulo, titulo, titulo, 0, true), new CriterioComparacionByTitulo()));
     }
 
     @Override
