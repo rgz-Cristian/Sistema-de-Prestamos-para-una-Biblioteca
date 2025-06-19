@@ -1,6 +1,7 @@
 
 package modules;
 
+import java.util.ArrayList;
 import java.util.List;
 import modules.interfacesmodules.IBook;
 import org.junit.Test;
@@ -12,24 +13,26 @@ import org.mockito.Mock;
 public class LibraryServicesTest {
     
     LibraryServices instance = new LibraryServices();
+
+
+    private final List<Register> mockRegisters = new ArrayList<>();
+    private final List<IBook> mockBooks = new ArrayList<>();
     
-    @Mock
-    IBook book;
-        
+    
+    
 
     @Test
     public void testGetLibros() {
         System.out.println("getLibros");
         List<IBook> result = instance.getLibros();
-        assertEquals(expResult, result);
+        assertEquals(mockBooks, result);
     }
 
 
     @Test
     public void testSetLibros() {
         System.out.println("setLibros");
-        List<IBook> books = null;
-        LibraryServices instance = new LibraryServices();
+        List<IBook> books = mockBooks;
         instance.setLibros(books);
     }
 
@@ -37,10 +40,8 @@ public class LibraryServicesTest {
     @Test
     public void testGetRegistros() {
         System.out.println("getRegistros");
-        LibraryServices instance = new LibraryServices();
-        List<Register> expResult = null;
         List<Register> result = instance.getRegistros();
-        assertEquals(expResult, result);
+        assertEquals(mockRegisters, result);
     }
 
 
@@ -48,17 +49,21 @@ public class LibraryServicesTest {
     public void testSetRegistros() {
         System.out.println("setRegistros");
         List<Register> registers = null;
-        LibraryServices instance = new LibraryServices();
         instance.setRegistros(registers);
     }
 
     @Test
-    @Before
     public void testAddRegister() {
         System.out.println("addRegister");
-        Register register = ;
-        LibraryServices instance = new LibraryServices();
+        Register register = null;
         instance.addRegister(register);
+    }
+    
+    @Test
+    public void testAddBook() {
+        System.out.println("addBook");
+        IBook book = null;
+        instance.addBook(book);
     }
 
 
@@ -66,7 +71,6 @@ public class LibraryServicesTest {
     public void testFindByTitle() {
         System.out.println("findByTitle");
         String title = "";
-        LibraryServices instance = new LibraryServices();
         IBook expResult = null;
         IBook result = instance.findByTitle(title);
         assertEquals(expResult, result);
@@ -76,7 +80,6 @@ public class LibraryServicesTest {
     public void testFindByAuthor() {
         System.out.println("findByAuthor");
         String author = "";
-        LibraryServices instance = new LibraryServices();
         IBook expResult = null;
         IBook result = instance.findByAuthor(author);
         assertEquals(expResult, result);
