@@ -44,11 +44,18 @@ public class LibraryServices implements ILibraryServices{
 
     @Override
     public IBook findByTitle(String title) {
-        return books.get(Collections.binarySearch(books, new Book(title, title, title, title, 0, true, title), new ComparisonCriterionByTitle()));
+        int index = Collections.binarySearch(books, new Book(title, title, title, title, 0, true, title), new ComparisonCriterionByTitle());
+        
+        return (index >= 0)
+                ?books.get(index)
+                :null;
     }
 
     @Override
     public IBook findByAuthor(String author) {
-        return books.get(Collections.binarySearch(books, new Book(author, author, author, author, 0, true, author), new ComparisonCriterionByAuthor()));
+        int index = Collections.binarySearch(books, new Book(author, author, author, author, 0, true, author), new ComparisonCriterionByAuthor());
+        return (index >= 0)
+            ?books.get(index)
+            :null;
     }
 }
