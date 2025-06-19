@@ -7,6 +7,11 @@ import modules.interfacesmodules.ILibraryServices;
 public class LibraryManagement implements ILibraryServices{
     private ILibraryServices service;
 
+    public LibraryManagement(ILibraryServices service){
+        this.service = service;
+    }
+    
+    
     @Override
     public void toRegisterBook(IBook book) {
         service.toRegisterBook(book);
@@ -15,6 +20,10 @@ public class LibraryManagement implements ILibraryServices{
     @Override
     public void addRegister(Register register) {
         service.addRegister(register);
+    }
+    
+    public void addBook(IBook book){
+        service.addBook(book);
     }
 
     @Override

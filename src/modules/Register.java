@@ -13,8 +13,7 @@ public abstract class Register {
         this.book = book;
     }
     
-   
-
+ 
     public String getIdRegister() {
         return idRegister;
     }
