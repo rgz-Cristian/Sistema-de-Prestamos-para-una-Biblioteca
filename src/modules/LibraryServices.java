@@ -4,54 +4,51 @@ package modules;
 import java.util.ArrayList;
 import java.util.Collections;
 import java.util.List;
-import modules.auxclass.CriterioComparacionByAutor;
-import modules.auxclass.CriterioComparacionByTitulo;
-import modules.interfacesmodules.ILibro;
-import modules.interfacesmodules.IServiciosBiblioteca;
+import modules.auxclass.ComparisonCriterionByAuthor;
+import modules.auxclass.ComparisonCriterionByTitle;
+import modules.interfacesmodules.IBook;
+import modules.interfacesmodules.ILibraryServices;
 
-/**
- *
- * @author criss
- */
-public class ServiciosBiblioteca implements IServiciosBiblioteca{
+
+public class LibraryServices implements ILibraryServices{
     
-    private List<ILibro> libros = new ArrayList<>();
-    private List<Registro> registros = new ArrayList<>();
+    private List<IBook> books = new ArrayList<>();
+    private List<Register> registers = new ArrayList<>();
 
-    public List<ILibro> getLibros() {
-        return libros;
+    public List<IBook> getLibros() {
+        return books;
     }
 
-    public void setLibros(List<ILibro> libros) {
-        this.libros = libros;
+    public void setLibros(List<IBook> books) {
+        this.books = books;
     }
 
-    public List<Registro> getRegistros() {
-        return registros;
+    public List<Register> getRegistros() {
+        return registers;
     }
 
-    public void setRegistros(List<Registro> registros) {
-        this.registros = registros;
-    }
-
-    @Override
-    public void registrarLibro(ILibro libro) {
-        this.libros.add(libro);
+    public void setRegistros(List<Register> registers) {
+        this.registers = registers;
     }
 
     @Override
-    public void addRegistro(Registro registro) {
-        this.registros.add(registro);
+    public void toRegisterBook(IBook book) {
+        this.books.add(book);
+    }
+
+    @Override
+    public void addRegister(Register register) {
+        this.registers.add(register);
 
     }
 
     @Override
-    public ILibro buscarPorTitulo(String titulo) {
-        return libros.get(Collections.binarySearch(libros, new Libro(titulo, titulo, titulo, titulo, 0, true), new CriterioComparacionByTitulo()));
+    public IBook findByTitle(String title) {
+        return books.get(Collections.binarySearch(books, new Book(title, title, title, title, 0, true, title), new ComparisonCriterionByTitle()));
     }
 
     @Override
-    public ILibro buscarPorAutor(String autor) {
-        return libros.get(Collections.binarySearch(libros, new Libro(autor, autor, autor, autor, 0, true), new CriterioComparacionByAutor()));
+    public IBook findByAuthor(String author) {
+        return books.get(Collections.binarySearch(books, new Book(author, author, author, author, 0, true, author), new ComparisonCriterionByAuthor()));
     }
 }

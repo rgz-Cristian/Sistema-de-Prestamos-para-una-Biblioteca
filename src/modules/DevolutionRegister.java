@@ -2,26 +2,22 @@
 package modules;
 
 import java.util.Date;
-import modules.interfacesmodules.ILibro;
+import modules.interfacesmodules.IBook;
 
-public class RegistroDevolucion extends Registro{
-    private Date fechaDevolucion;
+public class DevolutionRegister extends Register{
+    private Date devolutionDate;
 
-    public RegistroDevolucion(Date fechaDevolucion, String idRegistro, ILibro libro) {
-        super(idRegistro, libro);
-        this.fechaDevolucion = fechaDevolucion;
+    public DevolutionRegister(String idRegister, IBook book, Date devolutionDate) {
+        super(idRegister, book);
+        this.devolutionDate = devolutionDate;
     }
 
-    public Date getFechaDevolucion() {
-        return fechaDevolucion;
+    public Date getDevolutionDate() {
+        return devolutionDate;
     }
 
-    public void setFechaDevolucion(Date fechaDevolucion) {
-        this.fechaDevolucion = fechaDevolucion;
+    public void setDevolutionDate(Date devolutionDate) {
+        this.devolutionDate = devolutionDate;
     }
     
-    @Override
-    public void actualizarEstado() {
-        this.libro.setIsDisponible(true);
-    }
 }

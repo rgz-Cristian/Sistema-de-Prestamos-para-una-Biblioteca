@@ -1,51 +1,33 @@
 
 package modules;
 
-import modules.interfacesmodules.ILibro;
-import modules.interfacesmodules.IServiciosBiblioteca;
+import modules.interfacesmodules.IBook;
+import modules.interfacesmodules.ILibraryServices;
 
-public class GestionBiblioteca implements IServiciosBiblioteca{
-    private String nombre;
-    private IServiciosBiblioteca servicios;
-
-    @Override
-    public void registrarLibro(ILibro libro) {
-        servicios.registrarLibro(libro);
-    }
+public class LibraryManagement implements ILibraryServices{
+    private ILibraryServices service;
 
     @Override
-    public void addRegistro(Registro registro) {
-        servicios.addRegistro(registro);
+    public void toRegisterBook(IBook book) {
+        service.toRegisterBook(book);
     }
 
     @Override
-    public ILibro buscarPorTitulo(String titulo) {
-        return servicios.buscarPorTitulo(titulo);
-    }
-
-    public String getNombre() {
-        return nombre;
-    }
-
-    public void setNombre(String nombre) {
-        this.nombre = nombre;
-    }
-
-    public IServiciosBiblioteca getServicios() {
-        return servicios;
-    }
-
-    public void setServicios(IServiciosBiblioteca servicios) {
-        this.servicios = servicios;
+    public void addRegister(Register register) {
+        service.addRegister(register);
     }
 
     @Override
-    public ILibro buscarPorAutor(String autor) {
-        return servicios.buscarPorAutor(autor);
+    public IBook findByTitle(String title) {
+        return service.findByTitle(title);
     }
 
-    public GestionBiblioteca(String nombre, IServiciosBiblioteca servicios) {
-        this.nombre = nombre;
-        this.servicios = servicios;
+    @Override
+    public IBook findByAuthor(String author) {
+        return service.findByAuthor(author);
     }
+    
+    
+    
+    
 }

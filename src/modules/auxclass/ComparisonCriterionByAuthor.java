@@ -2,11 +2,11 @@
 package modules.auxclass;
 
 import java.util.Comparator;
-import modules.interfacesmodules.ILibro;
+import modules.interfacesmodules.IBook;
 
-public class CriterioComparacionByTitulo implements Comparator <ILibro>{
+public class ComparisonCriterionByAuthor implements Comparator <IBook>{
     @Override
-    public int compare(ILibro o1, ILibro o2) {
-        return o1.getTitulo().compareTo(o2.getTitulo());
+    public int compare(IBook o1, IBook o2) {
+        return o1.getAuthor().compareTo(o2.getAuthor());
     }
 }

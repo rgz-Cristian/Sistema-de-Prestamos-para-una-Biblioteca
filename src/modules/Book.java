@@ -1,84 +1,79 @@
 
 package modules;
 
-import modules.interfacesmodules.ILibro;
+import modules.interfacesmodules.IBook;
 
-public class Libro implements ILibro {
+public class Book implements IBook {
     
-    private String idLibro;
-    private String titulo;
-    private String autor;
-    private String genero;
-    private int publicacion;
-    private boolean isDisponible;
+    private String idBook;
+    private String title;
+    private String author;
+    private String genre;
+    private int yearRelease;
+    private boolean isAvailable;
 
-    public Libro(String idLibro, String titulo, String autor, String genero, int publicacion, boolean isDisponible) {
-        this.idLibro = idLibro;
-        this.titulo = titulo;
-        this.autor = autor;
-        this.genero = genero;
-        this.publicacion = publicacion;
-        this.isDisponible = isDisponible;
+    public Book(String idBook, String title, String autor, String genre, int yearRelease, boolean isAvailable, String author) {
+        this.idBook = idBook;
+        this.title = title;
+        this.author = author;
+        this.genre = genre;
+        this.yearRelease = yearRelease;
+        this.isAvailable = isAvailable;
+    }
+    @Override
+    public String getIdBook() {
+        return idBook;
+    }
+    @Override
+    public void setIdBook(String idBook) {
+        this.idBook = idBook;
+    }
+    @Override
+    public String getTitle() {
+        return title;
+    }
+    @Override
+    public void setTitle(String title) {
+        this.title = title;
+    }
+    @Override
+    public String getAuthor() {
+        return author;
+    }
+    @Override
+    public void setAuthor(String autor) {
+        this.author = autor;
     }
     
-
-
     @Override
-    public String getIdLibro() {
-        return idLibro;
-    }
-    @Override
-    public void setIdLibro(String idLibro) {
-        this.idLibro = idLibro;
+    public String getGenre() {
+        return genre;
     }
 
     @Override
-    public String getTitulo() {
-        return titulo;
+    public void setGenre(String genre) {
+        this.genre = genre;
     }
 
     @Override
-    public void setTitulo(String titulo) {
-        this.titulo = titulo;
+    public int getYearRelease() {
+        return yearRelease;
     }
 
     @Override
-    public String getAutor() {
-        return autor;
+    public void setYearRelease(int yearRelease) {
+        this.yearRelease = yearRelease;
     }
 
     @Override
-    public void setAutor(String autor) {
-        this.autor = autor;
+    public void setIsAvailable(boolean isAvailable) {
+        this.isAvailable = isAvailable;
     }
 
     @Override
-    public String getGenero() {
-        return genero;
+    public boolean getIsAvailable() {
+        return isAvailable;
     }
-
-    @Override
-    public void setGenero(String genero) {
-        this.genero = genero;
-    }
-
-    @Override
-    public int getPublicacion() {
-        return publicacion;
-    }
-
-    @Override
-    public void setPublicacion(int Publicacion) {
-        this.publicacion = Publicacion;
-    }
-
-    @Override
-    public boolean getIsDisponible() {
-        return isDisponible;
-    }
-
-    @Override
-    public void setIsDisponible(boolean isDisponible) {
-        this.isDisponible = isDisponible;
-    }
+    
+   
 }

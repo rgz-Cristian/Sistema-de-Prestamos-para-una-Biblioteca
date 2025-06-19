@@ -1,11 +1,11 @@
 
 package modules.interfacesmodules;
 
-import modules.Registro;
+import modules.Register;
 
-public interface IServiciosBiblioteca {
-    void registrarLibro(ILibro libro);
-    void addRegistro(Registro registro);
-    ILibro buscarPorTitulo(String titulo);
-    ILibro buscarPorAutor(String autor);
+public interface ILibraryServices {
+    void toRegisterBook(IBook book);
+    void addRegister(Register register);
+    IBook findByTitle(String title);
+    IBook findByAuthor(String author);
 }

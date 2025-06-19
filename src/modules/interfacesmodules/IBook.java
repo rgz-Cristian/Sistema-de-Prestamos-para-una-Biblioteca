@@ -1,29 +1,29 @@
 
 package modules.interfacesmodules;
 
-public interface ILibro {   
+public interface IBook {   
     
-    String getIdLibro();
+    String getIdBook();
     
-    void setIdLibro(String idLibro);
+    void setIdBook(String idLibro);
     
-    String getTitulo();
+    String getTitle();
     
-    void setTitulo(String titulo);
+    void setTitle(String titulo);
     
-    String getAutor();
+    String getAuthor();
     
-    void setAutor(String autor);
+    void setAuthor(String autor);
     
-    String getGenero();
+    String getGenre();
     
-    void setGenero(String genero);
+    void setGenre(String genero);
     
-    int getPublicacion();
+    int getYearRelease();
     
-    void setPublicacion(int publicacion);
+    void setYearRelease(int publicacion);
     
-    boolean getIsDisponible();
+    boolean getIsAvailable();
     
-    void setIsDisponible(boolean isDisponible);
+    void setIsAvailable(boolean isDisponible);
 }

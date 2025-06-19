@@ -2,46 +2,44 @@
 package modules;
 
 import java.util.Date;
-import modules.interfacesmodules.ILibro;
+import modules.interfacesmodules.IBook;
 
-public class RegistroPrestamo extends Registro{
-    private String idUsuario;
-    private Date fechaPrestamo;
-    private Date fechaDevolucionEsperada;
+public class LoanRegister extends Register{
+    private String idUser;
+    private Date loanDate;
+    private Date devolutionHopedDate;
 
-    public RegistroPrestamo(String idUsuario, Date fechaPrestamo, Date fechaDevolucionEsperada, String idRegistro, ILibro libro) {
-        super(idRegistro, libro);
-        this.idUsuario = idUsuario;
-        this.fechaPrestamo = fechaPrestamo;
-        this.fechaDevolucionEsperada = fechaDevolucionEsperada;
+    public LoanRegister(String idUser, Date loanDate, Date devolutionHopedDate, String idRegister, IBook book) {
+        super(idRegister, book);
+        this.idUser = idUser;
+        this.loanDate = loanDate;
+        this.devolutionHopedDate = devolutionHopedDate;
     }
 
-    public String getIdUsuario() {
-        return idUsuario;
+    public String getIdUser() {
+        return idUser;
     }
 
-    public void setIdUsuario(String idUsuario) {
-        this.idUsuario = idUsuario;
+    public void setIdUser(String idUser) {
+        this.idUser = idUser;
     }
 
-    public Date getFechaPrestamo() {
-        return fechaPrestamo;
+    public Date getLoanDate() {
+        return loanDate;
     }
 
-    public void setFechaPrestamo(Date fechaPrestamo) {
-        this.fechaPrestamo = fechaPrestamo;
+    public void setLoanDate(Date loanDate) {
+        this.loanDate = loanDate;
     }
 
-    public Date getFechaDevolucionEsperada() {
-        return fechaDevolucionEsperada;
+    public Date getDevolutionHopedDate() {
+        return devolutionHopedDate;
     }
 
-    public void setFechaDevolucionEsperada(Date fechaDevolucionEsperada) {
-        this.fechaDevolucionEsperada = fechaDevolucionEsperada;
+    public void setDevolutionHopedDate(Date devolutionHopedDate) {
+        this.devolutionHopedDate = devolutionHopedDate;
     }
+    
+    
 
-    @Override
-    public void actualizarEstado() {
-        this.libro.setIsDisponible(false);
-    }
 }

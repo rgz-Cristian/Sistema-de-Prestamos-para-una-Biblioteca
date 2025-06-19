@@ -1,35 +1,35 @@
 
 package modules;
 
-import modules.interfacesmodules.ILibro;
+import modules.interfacesmodules.IBook;
 
 
-public abstract class Registro {
-    protected String idRegistro;
-    protected ILibro libro;
+public abstract class Register {
+    protected String idRegister;
+    protected IBook book;
 
-    public Registro(String idRegistro, ILibro libro) {
-        this.idRegistro = idRegistro;
-        this.libro = libro;
+    public Register(String idRegister, IBook book) {
+        this.idRegister = idRegister;
+        this.book = book;
     }
     
+   
 
-    public abstract void actualizarEstado();
-
-    public String getIdRegistro() {
-        return idRegistro;
+    public String getIdRegister() {
+        return idRegister;
     }
 
-    public void setIdRegistro(String idRegistro) {
-        this.idRegistro = idRegistro;
+    public void setIdRegister(String idRegister) {
+        this.idRegister = idRegister;
     }
 
-    public ILibro getLibro() {
-        return libro;
+    public IBook getBook() {
+        return book;
     }
 
-    public void setLibro(ILibro libro) {
-        this.libro = libro;
+    public void setBook(IBook book) {
+        this.book = book;
     }
- 
+
+   
 }
