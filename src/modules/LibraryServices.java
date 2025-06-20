@@ -39,12 +39,16 @@ public class LibraryServices implements ILibraryServices{
     @Override
     public void addRegister(Register register) {
         this.registers.add(register);
-
+    }
+    
+    @Override
+    public void addBook(IBook book){
+        this.books.add(book);
     }
 
     @Override
     public IBook findByTitle(String title) {
-        int index = Collections.binarySearch(books, new Book(title, title, title, title, 0, true, title), new ComparisonCriterionByTitle());
+        int index = Collections.binarySearch(books, new Book(title, title, title, 0, true, title), new ComparisonCriterionByTitle());
         
         return (index >= 0)
                 ?books.get(index)
@@ -53,7 +57,7 @@ public class LibraryServices implements ILibraryServices{
 
     @Override
     public IBook findByAuthor(String author) {
-        int index = Collections.binarySearch(books, new Book(author, author, author, author, 0, true, author), new ComparisonCriterionByAuthor());
+        int index = Collections.binarySearch(books, new Book(author, author, author, 0, true, author), new ComparisonCriterionByAuthor());
         return (index >= 0)
             ?books.get(index)
             :null;

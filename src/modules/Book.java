@@ -12,7 +12,7 @@ public class Book implements IBook {
     private int yearRelease;
     private boolean isAvailable;
 
-    public Book(String idBook, String title, String autor, String genre, int yearRelease, boolean isAvailable, String author) {
+    public Book(String idBook, String title, String genre, int yearRelease, boolean isAvailable, String author) {
         this.idBook = idBook;
         this.title = title;
         this.author = author;
