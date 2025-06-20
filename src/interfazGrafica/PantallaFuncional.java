@@ -28,6 +28,7 @@ public class PantallaFuncional extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
+        buttonGroup = new javax.swing.ButtonGroup();
         jDesktopPane1 = new javax.swing.JDesktopPane();
         jToolBar1 = new javax.swing.JToolBar();
         jSeparator10 = new javax.swing.JToolBar.Separator();
@@ -40,11 +41,10 @@ public class PantallaFuncional extends javax.swing.JFrame {
         botonBuscarLibro = new javax.swing.JButton();
         jLabel1 = new javax.swing.JLabel();
         barraDeBusqueda = new javax.swing.JProgressBar();
-        rutaPorTitulo = new javax.swing.JRadioButton();
-        rutaPorAutor = new javax.swing.JRadioButton();
         jTextField1 = new javax.swing.JTextField();
-        botonAPantallaDeIncio = new javax.swing.JButton();
         jLabel2 = new javax.swing.JLabel();
+        jRadioButton1 = new javax.swing.JRadioButton();
+        jRadioButton2 = new javax.swing.JRadioButton();
         jMenuBar1 = new javax.swing.JMenuBar();
         jMenu1 = new javax.swing.JMenu();
         jMenu2 = new javax.swing.JMenu();
@@ -114,40 +114,26 @@ public class PantallaFuncional extends javax.swing.JFrame {
         jLabel1.setFont(new java.awt.Font("Segoe UI", 1, 24)); // NOI18N
         jLabel1.setText("Buscar Libro:");
 
-        rutaPorTitulo.setText("Por Titulo");
-        rutaPorTitulo.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                rutaPorTituloActionPerformed(evt);
-            }
-        });
-
-        rutaPorAutor.setText("Por Autor");
-        rutaPorAutor.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                rutaPorAutorActionPerformed(evt);
-            }
-        });
-
         jTextField1.setText("jTextField1");
 
-        botonAPantallaDeIncio.setText("<<");
-        botonAPantallaDeIncio.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                botonAPantallaDeIncioActionPerformed(evt);
-            }
-        });
-
         jLabel2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/interfazGrafica/imagen/icons8-java.gif"))); // NOI18N
+
+        buttonGroup.add(jRadioButton1);
+        jRadioButton1.setFont(new java.awt.Font("Segoe UI", 0, 13)); // NOI18N
+        jRadioButton1.setText("jRadioButton1");
+
+        buttonGroup.add(jRadioButton2);
+        jRadioButton2.setFont(new java.awt.Font("Segoe UI", 0, 13)); // NOI18N
+        jRadioButton2.setText("jRadioButton2");
 
         jDesktopPane1.setLayer(jToolBar1, javax.swing.JLayeredPane.DEFAULT_LAYER);
         jDesktopPane1.setLayer(botonBuscarLibro, javax.swing.JLayeredPane.DEFAULT_LAYER);
         jDesktopPane1.setLayer(jLabel1, javax.swing.JLayeredPane.DEFAULT_LAYER);
         jDesktopPane1.setLayer(barraDeBusqueda, javax.swing.JLayeredPane.DEFAULT_LAYER);
-        jDesktopPane1.setLayer(rutaPorTitulo, javax.swing.JLayeredPane.DEFAULT_LAYER);
-        jDesktopPane1.setLayer(rutaPorAutor, javax.swing.JLayeredPane.DEFAULT_LAYER);
         jDesktopPane1.setLayer(jTextField1, javax.swing.JLayeredPane.DEFAULT_LAYER);
-        jDesktopPane1.setLayer(botonAPantallaDeIncio, javax.swing.JLayeredPane.DEFAULT_LAYER);
         jDesktopPane1.setLayer(jLabel2, javax.swing.JLayeredPane.DEFAULT_LAYER);
+        jDesktopPane1.setLayer(jRadioButton1, javax.swing.JLayeredPane.DEFAULT_LAYER);
+        jDesktopPane1.setLayer(jRadioButton2, javax.swing.JLayeredPane.DEFAULT_LAYER);
 
         javax.swing.GroupLayout jDesktopPane1Layout = new javax.swing.GroupLayout(jDesktopPane1);
         jDesktopPane1.setLayout(jDesktopPane1Layout);
@@ -157,30 +143,26 @@ public class PantallaFuncional extends javax.swing.JFrame {
                 .addComponent(jToolBar1, javax.swing.GroupLayout.PREFERRED_SIZE, 100, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGroup(jDesktopPane1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(jDesktopPane1Layout.createSequentialGroup()
-                        .addGap(194, 194, 194)
-                        .addComponent(jLabel1)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                        .addGroup(jDesktopPane1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addGroup(jDesktopPane1Layout.createSequentialGroup()
-                                .addComponent(rutaPorAutor)
-                                .addGap(18, 18, 18)
-                                .addComponent(rutaPorTitulo)
-                                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                            .addGroup(jDesktopPane1Layout.createSequentialGroup()
-                                .addComponent(jTextField1, javax.swing.GroupLayout.DEFAULT_SIZE, 367, Short.MAX_VALUE)
-                                .addGap(18, 18, 18)
-                                .addComponent(botonBuscarLibro)
-                                .addGap(173, 173, 173))))
-                    .addGroup(jDesktopPane1Layout.createSequentialGroup()
                         .addGap(5, 5, 5)
                         .addComponent(jLabel2)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                         .addComponent(barraDeBusqueda, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addContainerGap())
                     .addGroup(jDesktopPane1Layout.createSequentialGroup()
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(botonAPantallaDeIncio)
-                        .addContainerGap())))
+                        .addGap(194, 194, 194)
+                        .addComponent(jLabel1)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                        .addGroup(jDesktopPane1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addGroup(jDesktopPane1Layout.createSequentialGroup()
+                                .addComponent(jRadioButton1)
+                                .addGap(51, 51, 51)
+                                .addComponent(jRadioButton2)
+                                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                            .addGroup(jDesktopPane1Layout.createSequentialGroup()
+                                .addComponent(jTextField1, javax.swing.GroupLayout.DEFAULT_SIZE, 367, Short.MAX_VALUE)
+                                .addGap(18, 18, 18)
+                                .addComponent(botonBuscarLibro)
+                                .addGap(173, 173, 173))))))
         );
         jDesktopPane1Layout.setVerticalGroup(
             jDesktopPane1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -188,9 +170,7 @@ public class PantallaFuncional extends javax.swing.JFrame {
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jDesktopPane1Layout.createSequentialGroup()
                 .addGroup(jDesktopPane1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                     .addGroup(jDesktopPane1Layout.createSequentialGroup()
-                        .addContainerGap()
-                        .addComponent(botonAPantallaDeIncio)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                         .addComponent(jLabel2))
                     .addGroup(jDesktopPane1Layout.createSequentialGroup()
                         .addGap(50, 50, 50)
@@ -198,10 +178,10 @@ public class PantallaFuncional extends javax.swing.JFrame {
                             .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 44, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addComponent(jTextField1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addComponent(botonBuscarLibro))
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addGroup(jDesktopPane1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                            .addComponent(rutaPorAutor)
-                            .addComponent(rutaPorTitulo))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                        .addGroup(jDesktopPane1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(jRadioButton1, javax.swing.GroupLayout.Alignment.TRAILING)
+                            .addComponent(jRadioButton2, javax.swing.GroupLayout.Alignment.TRAILING))
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                         .addComponent(barraDeBusqueda, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
                 .addContainerGap())
@@ -239,21 +219,6 @@ public class PantallaFuncional extends javax.swing.JFrame {
     private void botonBuscarLibroActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_botonBuscarLibroActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_botonBuscarLibroActionPerformed
-
-    private void rutaPorTituloActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_rutaPorTituloActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_rutaPorTituloActionPerformed
-
-    private void rutaPorAutorActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_rutaPorAutorActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_rutaPorAutorActionPerformed
-
-    private void botonAPantallaDeIncioActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_botonAPantallaDeIncioActionPerformed
-        // TODO add your handling code here:
-           PantallaPrincipal botonInicial = new PantallaPrincipal();
-        botonInicial.setVisible(true);
-        this.dispose();
-    }//GEN-LAST:event_botonAPantallaDeIncioActionPerformed
 
     /**
      * @param args the command line arguments
@@ -295,8 +260,8 @@ public class PantallaFuncional extends javax.swing.JFrame {
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JProgressBar barraDeBusqueda;
-    private javax.swing.JButton botonAPantallaDeIncio;
     private javax.swing.JButton botonBuscarLibro;
+    private javax.swing.ButtonGroup buttonGroup;
     private javax.swing.JButton jButton1;
     private javax.swing.JButton jButton2;
     private javax.swing.JButton jButton3;
@@ -306,13 +271,13 @@ public class PantallaFuncional extends javax.swing.JFrame {
     private javax.swing.JMenu jMenu1;
     private javax.swing.JMenu jMenu2;
     private javax.swing.JMenuBar jMenuBar1;
+    private javax.swing.JRadioButton jRadioButton1;
+    private javax.swing.JRadioButton jRadioButton2;
     private javax.swing.JToolBar.Separator jSeparator10;
     private javax.swing.JToolBar.Separator jSeparator7;
     private javax.swing.JToolBar.Separator jSeparator8;
     private javax.swing.JToolBar.Separator jSeparator9;
     private javax.swing.JTextField jTextField1;
     private javax.swing.JToolBar jToolBar1;
-    private javax.swing.JRadioButton rutaPorAutor;
-    private javax.swing.JRadioButton rutaPorTitulo;
     // End of variables declaration//GEN-END:variables
 }
