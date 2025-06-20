@@ -7,10 +7,12 @@ import modules.interfacesmodules.IBook;
 import org.junit.Test;
 import static org.junit.Assert.*;
 import org.junit.Before;
-import org.mockito.Mock;
+import static org.mockito.Mockito.*;
+
 
 
 public class LibraryServicesTest {
+    
     
     LibraryServices instance = new LibraryServices();
 
@@ -23,65 +25,85 @@ public class LibraryServicesTest {
 
     @Test
     public void testGetLibros() {
-        System.out.println("getLibros");
+        //When
         List<IBook> result = instance.getLibros();
+        
+        //Then
         assertEquals(mockBooks, result);
     }
 
 
     @Test
     public void testSetLibros() {
-        System.out.println("setLibros");
+        //Given
         List<IBook> books = mockBooks;
+        
+        //Then
         instance.setLibros(books);
     }
 
 
     @Test
     public void testGetRegistros() {
-        System.out.println("getRegistros");
+        //When
         List<Register> result = instance.getRegistros();
+        
+        //Then
         assertEquals(mockRegisters, result);
     }
 
 
     @Test
     public void testSetRegistros() {
-        System.out.println("setRegistros");
-        List<Register> registers = null;
+        //Given
+        List<Register> registers = mockRegisters;
+        
+        //Then
         instance.setRegistros(registers);
     }
 
     @Test
     public void testAddRegister() {
-        System.out.println("addRegister");
-        Register register = null;
+        //Given
+        Register register = mock(Register.class);
+        
+        //Then
         instance.addRegister(register);
     }
     
     @Test
     public void testAddBook() {
-        System.out.println("addBook");
-        IBook book = null;
+        //Given
+        IBook book = mock(Book.class);
+        
+        //Then
         instance.addBook(book);
     }
 
 
     @Test
     public void testFindByTitle() {
-        System.out.println("findByTitle");
+        //Given
         String title = "";
         IBook expResult = null;
+        
+        //When
         IBook result = instance.findByTitle(title);
+        
+        //Then
         assertEquals(expResult, result);
     }
 
     @Test
     public void testFindByAuthor() {
-        System.out.println("findByAuthor");
+        //Given
         String author = "";
         IBook expResult = null;
+        
+        //When
         IBook result = instance.findByAuthor(author);
+        
+        //Then
         assertEquals(expResult, result);
     }
     
