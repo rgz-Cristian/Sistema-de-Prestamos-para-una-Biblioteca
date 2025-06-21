@@ -5,6 +5,7 @@ import java.util.ArrayList;
 import java.util.Collections;
 import java.util.List;
 import modules.auxclass.ComparisonCriterionByAuthor;
+import modules.auxclass.ComparisonCriterionById;
 import modules.auxclass.ComparisonCriterionByTitle;
 import modules.interfacesmodules.IBook;
 import modules.interfacesmodules.ILibraryServices;
@@ -45,21 +46,49 @@ public class LibraryServices implements ILibraryServices{
     public void addBook(IBook book){
         this.books.add(book);
     }
+    
+    private int getIndexByTitle(String title){
+        return Collections.binarySearch(books, new Book(title, title, title, 0, true, title), new ComparisonCriterionByTitle());
+    }
+    
 
     @Override
     public IBook findByTitle(String title) {
-        int index = Collections.binarySearch(books, new Book(title, title, title, 0, true, title), new ComparisonCriterionByTitle());
-        
+        int index = getIndexByTitle(title);
+        return (index >= 0)
+                ?books.get(index)
+                :null;
+    }
+    
+    private int getIndexByAuthor(String author){
+        return Collections.binarySearch(books, new Book(author, author, author, 0, true, author), new ComparisonCriterionByAuthor());
+    }
+
+    @Override
+    public IBook findByAuthor(String author) {
+        int index = getIndexByAuthor(author);
+        return (index >= 0)
+            ?books.get(index)
+            :null;
+    }
+    
+    private int getIndexFindById(String id){
+        return Collections.binarySearch(books, new Book(id, id, id, 0, true, id), new ComparisonCriterionById());
+    }
+    
+    @Override
+    public IBook findByID(String id) {
+        int index = getIndexFindById(id);
         return (index >= 0)
                 ?books.get(index)
                 :null;
     }
 
     @Override
-    public IBook findByAuthor(String author) {
-        int index = Collections.binarySearch(books, new Book(author, author, author, 0, true, author), new ComparisonCriterionByAuthor());
-        return (index >= 0)
-            ?books.get(index)
-            :null;
+    public boolean deleteByID(String id) {
+        IBook object = findByID(id);
+        return (object != null)
+                ?books.remove(object)
+                :false;
     }
 }
