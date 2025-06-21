@@ -36,8 +36,14 @@ public class LibraryManagement implements ILibraryServices{
     public IBook findByAuthor(String author) {
         return service.findByAuthor(author);
     }
-    
-    
-    
-    
+
+    @Override
+    public IBook finByID(String id) {
+        return service.finByID(id);
+    }
+
+    @Override
+    public IBook deleteByID(String id) {
+        return service.deleteByID(id);
+    }
 }
