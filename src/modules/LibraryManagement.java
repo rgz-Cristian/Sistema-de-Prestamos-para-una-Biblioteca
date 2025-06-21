@@ -5,7 +5,7 @@ import modules.interfacesmodules.IBook;
 import modules.interfacesmodules.ILibraryServices;
 
 public class LibraryManagement implements ILibraryServices{
-    private ILibraryServices service;
+    private final ILibraryServices service;
 
     public LibraryManagement(ILibraryServices service){
         this.service = service;
