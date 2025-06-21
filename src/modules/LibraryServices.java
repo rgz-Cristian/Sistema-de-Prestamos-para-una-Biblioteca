@@ -86,7 +86,9 @@ public class LibraryServices implements ILibraryServices{
 
     @Override
     public boolean deleteByID(String id) {
-        IBook object = books.get(getIndexFindById(id));
-        return books.remove(object);
+        IBook object = findByID(id);
+        return (object != null)
+                ?books.remove(object)
+                :false;
     }
 }

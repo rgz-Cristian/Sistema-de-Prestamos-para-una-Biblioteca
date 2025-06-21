@@ -17,8 +17,8 @@ public class LibraryServicesTest {
     LibraryServices instance = new LibraryServices();
 
 
-    private final List<Register> mockRegisters = new ArrayList<>();
-    private final List<IBook> mockBooks = new ArrayList<>();
+    private final List<Register> mockRegisters = instance.getRegistros();
+    private final List<IBook> mockBooks = instance.getLibros();
     
     
     
@@ -84,58 +84,79 @@ public class LibraryServicesTest {
     @Test
     public void testFindByTitle() {
         //Given
-        String title = "";
-        IBook expResult = new Book(title, title, title, 0, true, title);
+        String title = "The Witcher";
+        IBook expResult2 = new Book("1010L", "The Witcher", "Heroic", 1998, true, "Andrew Sapowski");
+        IBook expResult = new Book("1211L", "Doc", "History", 1960, true, "Andrew Guilt");
+        instance.addBook(expResult2);
         instance.addBook(expResult);
         
         //When
-        IBook result = instance.findByTitle(title);
+        IBook resultTrue = instance.findByTitle(title);
+        IBook resultFalse = instance.findByTitle(title);
+
         
         //Then
-        assertEquals(expResult, result);
+        assertEquals(expResult2, resultTrue);
+        assertNotEquals(expResult, resultFalse);
     }
 
     @Test
     public void testFindByAuthor() {
         //Given
-        String author = "";
-        IBook expResult = new Book(author, author, author, 0, true, author);
+        String author = "Julien Tolkien";
+        IBook expResult2 = new Book("1010L","The Witcher", "Heroic", 1998, true, "Andrew Sapowski");
+        IBook expResult = new Book("1011L", "Lord of The Ring", "Epic", 1960, true, "Julien Tolkien");
+        instance.addBook(expResult2);
         instance.addBook(expResult);
         
         //When
-        IBook result = instance.findByAuthor(author);
+        IBook resultTrue = instance.findByAuthor(author);
+        IBook resultFalse = instance.findByAuthor(author);
+
         
         //Then
-        assertEquals(expResult, result);
+        assertEquals(expResult, resultTrue);
+        assertNotEquals(expResult2, resultFalse);
+
     }
     
     @Test
     public void testFindByID() {
         //Given
-        String id = "";
-        IBook expResult = new Book(id, id, id, 0, true, id);
+        String id = "1010L";
+        IBook expResult = new Book("1010L","The Witcher", "Heroic", 1998, true, "Andrew Sapowski");
         instance.addBook(expResult);
+        IBook expResult2 = new Book("1011L", "Lord of The Ring", "Epic", 1960, true, "Julien Tolkien");
+        instance.addBook(expResult2);
         
         //When
-        IBook result = instance.findByID(id);
+        IBook resultTrue = instance.findByID(id);
+        IBook resultFalse = instance.findByID(id);
+
         
         //Then
-        assertEquals(expResult, result);
+        assertEquals(expResult, resultTrue);
+        assertNotEquals(expResult2, resultFalse);
     }
     
     
     @Test
     public void testDeleteByID() {
         //Given
-        String id = "";
-        IBook expResult = new Book(id, id, id, 0, true, id);
-        instance.addBook(expResult);
+        String id = "1234";
+        IBook expResult1 = new Book("1234", id, id, 0, true, id);
+        IBook expResult2 = new Book("1010L", "Lord of The Ring", "Epic", 1960, true, "Julien Tolkien");
+        instance.addBook(expResult1);        
+        instance.addBook(expResult2);
+
         
         
         //When
-        boolean result = instance.deleteByID(id);
+        boolean resultTrue = instance.deleteByID(id);
+        boolean resultFalse = instance.deleteByID(id);
         
         //Then
-        assertTrue(result);
+        assertTrue(resultTrue);
+        assertFalse(resultFalse);
     }
 }
