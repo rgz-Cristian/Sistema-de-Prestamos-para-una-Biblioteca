@@ -85,7 +85,8 @@ public class LibraryServicesTest {
     public void testFindByTitle() {
         //Given
         String title = "";
-        IBook expResult = null;
+        IBook expResult = new Book(title, title, title, 0, true, title);
+        instance.addBook(expResult);
         
         //When
         IBook result = instance.findByTitle(title);
@@ -98,7 +99,8 @@ public class LibraryServicesTest {
     public void testFindByAuthor() {
         //Given
         String author = "";
-        IBook expResult = null;
+        IBook expResult = new Book(author, author, author, 0, true, author);
+        instance.addBook(expResult);
         
         //When
         IBook result = instance.findByAuthor(author);
@@ -107,4 +109,33 @@ public class LibraryServicesTest {
         assertEquals(expResult, result);
     }
     
+    @Test
+    public void testFindByID() {
+        //Given
+        String id = "";
+        IBook expResult = new Book(id, id, id, 0, true, id);
+        instance.addBook(expResult);
+        
+        //When
+        IBook result = instance.findByID(id);
+        
+        //Then
+        assertEquals(expResult, result);
+    }
+    
+    
+    @Test
+    public void testDeleteByID() {
+        //Given
+        String id = "";
+        IBook expResult = new Book(id, id, id, 0, true, id);
+        instance.addBook(expResult);
+        
+        
+        //When
+        boolean result = instance.deleteByID(id);
+        
+        //Then
+        assertTrue(result);
+    }
 }

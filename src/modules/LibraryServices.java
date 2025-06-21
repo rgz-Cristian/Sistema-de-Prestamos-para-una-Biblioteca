@@ -77,7 +77,7 @@ public class LibraryServices implements ILibraryServices{
     }
     
     @Override
-    public IBook finByID(String id) {
+    public IBook findByID(String id) {
         int index = getIndexFindById(id);
         return (index >= 0)
                 ?books.get(index)
@@ -85,8 +85,8 @@ public class LibraryServices implements ILibraryServices{
     }
 
     @Override
-    public IBook deleteByID(String id) {
-        int index = getIndexFindById(id);
-        return books.remove(index);
+    public boolean deleteByID(String id) {
+        IBook object = books.get(getIndexFindById(id));
+        return books.remove(object);
     }
 }

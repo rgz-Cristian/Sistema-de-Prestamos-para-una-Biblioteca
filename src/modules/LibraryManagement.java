@@ -38,12 +38,12 @@ public class LibraryManagement implements ILibraryServices{
     }
 
     @Override
-    public IBook finByID(String id) {
-        return service.finByID(id);
+    public IBook findByID(String id) {
+        return service.findByID(id);
     }
 
     @Override
-    public IBook deleteByID(String id) {
+    public boolean deleteByID(String id) {
         return service.deleteByID(id);
     }
 }

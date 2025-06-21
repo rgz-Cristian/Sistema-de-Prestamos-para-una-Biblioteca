@@ -49,7 +49,7 @@ public class LibraryManagementTest {
     }
     
     @Test
-    public void findByTitle() {
+    public void testFindByTitle() {
         // Given
         String title = "Padre rico, Padre pobre";
         
@@ -61,7 +61,7 @@ public class LibraryManagementTest {
     }
     
     @Test
-    public void findByAuthor() {
+    public void testFindByAuthor() {
         // Given
         String author = "James Stewart";
         
@@ -71,4 +71,28 @@ public class LibraryManagementTest {
         // Then
         verify(mockLibraryServices).findByTitle(author);
     }
+    
+    @Test
+    public void testFindById() {
+        String id = "1010L";
+        
+        //When
+        libraryManagement.findByTitle(id);
+
+        // Then
+        verify(mockLibraryServices).findByTitle(id);
+    }
+    
+    @Test
+    public void testDeleteById() {
+        String id = "1010L";
+        
+        //When
+        libraryManagement.findByID(id);
+
+        // Then
+        verify(mockLibraryServices).findByID(id);
+    }
+    
+    
 }
