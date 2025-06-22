@@ -20,6 +20,10 @@ public class Book implements IBook {
         this.yearRelease = yearRelease;
         this.isAvailable = isAvailable;
     }
+
+    public Book(String textoID, String textoTitulo, String textoAutor, String textoGenero, int anio) {
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    }
     @Override
     public String getIdBook() {
         return idBook;
