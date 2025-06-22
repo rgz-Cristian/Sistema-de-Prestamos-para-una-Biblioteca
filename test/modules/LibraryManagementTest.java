@@ -1,5 +1,6 @@
 package modules;
 
+import java.util.List;
 import modules.interfacesmodules.IBook;
 import modules.interfacesmodules.ILibraryServices;
 import org.junit.Before;
@@ -31,12 +32,12 @@ public class LibraryManagementTest {
 
 
     @Test
-    public void testToRegisterBook_DelegaCorrectamente() {
+    public void testSetBooks() {
         // When
-        libraryManagement.toRegisterBook(mockBook);
+        libraryManagement.setBooks((List<IBook>) mockBook);
 
         // Then
-        verify(mockLibraryServices).toRegisterBook(mockBook);
+        verify(mockLibraryServices).setBooks((List<IBook>) mockBook);
     }
     
     @Test
