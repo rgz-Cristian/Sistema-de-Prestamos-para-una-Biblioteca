@@ -12,10 +12,6 @@ import modules.interfacesmodules.ILibraryServices;
 
 
 public class LibraryServices implements ILibraryServices{
-
-    public static boolean agregarLibro(Book nuevoLibro) {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
-    }
     
     private List<IBook> books = new ArrayList<>();
     private List<Register> registers = new ArrayList<>();

@@ -5,11 +5,19 @@
  */
 package interfazGrafica;
 
+import modules.LibraryManagement;
+import modules.LibraryServices;
+import modules.interfacesmodules.ILibraryServices;
+
 /**
  *
  * @author Rosbel
  */
 public class PantallaFuncional extends javax.swing.JFrame {
+        
+        private ILibraryServices services = new LibraryServices();
+        private LibraryManagement libraryManagement = new LibraryManagement(services);
+    
 
     /**
      * Creates new form paginaFuncional
@@ -225,8 +233,8 @@ public class PantallaFuncional extends javax.swing.JFrame {
 
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
         // TODO add your handling code here:
-        AddLibros botonInicial = new AddLibros();
-        botonInicial.setVisible(true);
+        AddBooks addBookForm = new AddBooks(libraryManagement);
+        addBookForm.setVisible(true);
         this.dispose();
     }//GEN-LAST:event_jButton1ActionPerformed
 
@@ -244,8 +252,6 @@ public class PantallaFuncional extends javax.swing.JFrame {
 
     private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
         // TODO add your handling code here:
-         LibrosPrestados botonInicial = new LibrosPrestados();
-        botonInicial.setVisible(true);
         this.dispose();
     }//GEN-LAST:event_jButton2ActionPerformed
 

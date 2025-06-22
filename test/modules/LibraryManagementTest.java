@@ -4,7 +4,6 @@ import modules.interfacesmodules.IBook;
 import modules.interfacesmodules.ILibraryServices;
 import org.junit.Before;
 import org.junit.Test;
-import org.junit.runner.RunWith;
 import org.mockito.InjectMocks;
 import org.mockito.Mock;
 import static org.mockito.Mockito.*;
