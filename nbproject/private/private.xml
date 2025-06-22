@@ -3,11 +3,16 @@
     <editor-bookmarks xmlns="http://www.netbeans.org/ns/editor-bookmarks/2" lastBookmarkId="0"/>
     <open-files xmlns="http://www.netbeans.org/ns/projectui-open-files/2">
         <group>
+<<<<<<< HEAD
             <file>file:/D:/Bibloteca/Sistema-de-Prestamos-para-una-Biblioteca/src/interfazGrafica/LibrosPrestados.java</file>
             <file>file:/D:/Bibloteca/Sistema-de-Prestamos-para-una-Biblioteca/src/interfazGrafica/PantallaPrincipal.java</file>
             <file>file:/D:/Bibloteca/Sistema-de-Prestamos-para-una-Biblioteca/src/modules/Book.java</file>
             <file>file:/D:/Bibloteca/Sistema-de-Prestamos-para-una-Biblioteca/src/interfazGrafica/AddLibros.java</file>
             <file>file:/D:/Bibloteca/Sistema-de-Prestamos-para-una-Biblioteca/src/interfazGrafica/PantallaFuncional.java</file>
+=======
+            <file>file:/D:/U/Programación/JAVA/Biblioteca%20Proyecto/IGSW%20Backend%20branch/Sistema-de-Prestamos-para-una-Biblioteca/test/modules/LibraryManagementTest.java</file>
+            <file>file:/D:/U/Programación/JAVA/Biblioteca%20Proyecto/IGSW%20Backend%20branch/Sistema-de-Prestamos-para-una-Biblioteca/test/modules/LibraryServicesTest.java</file>
+>>>>>>> fc4f0ec20097d2ba4252d14a1f9a389a78020195
         </group>
     </open-files>
 </project-private>

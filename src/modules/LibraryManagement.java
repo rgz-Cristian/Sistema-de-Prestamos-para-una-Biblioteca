@@ -5,7 +5,7 @@ import modules.interfacesmodules.IBook;
 import modules.interfacesmodules.ILibraryServices;
 
 public class LibraryManagement implements ILibraryServices{
-    private ILibraryServices service;
+    private final ILibraryServices service;
 
     public LibraryManagement(ILibraryServices service){
         this.service = service;
@@ -36,8 +36,14 @@ public class LibraryManagement implements ILibraryServices{
     public IBook findByAuthor(String author) {
         return service.findByAuthor(author);
     }
-    
-    
-    
-    
+
+    @Override
+    public IBook findByID(String id) {
+        return service.findByID(id);
+    }
+
+    @Override
+    public boolean deleteByID(String id) {
+        return service.deleteByID(id);
+    }
 }
