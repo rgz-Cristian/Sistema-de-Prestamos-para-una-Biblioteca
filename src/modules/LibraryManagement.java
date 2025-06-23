@@ -1,6 +1,7 @@
 
 package modules;
 
+import java.util.List;
 import modules.interfacesmodules.IBook;
 import modules.interfacesmodules.ILibraryServices;
 
@@ -11,6 +12,9 @@ public class LibraryManagement implements ILibraryServices{
         this.service = service;
     }
     
+    public List<IBook> getLibros() {
+        return new LibraryServices().getLibros();
+    }
     
     @Override
     public void toRegisterBook(IBook book) {

@@ -5,6 +5,8 @@
  */
 package interfazGrafica;
 
+import java.util.ArrayList;
+import javax.swing.DefaultListModel;
 import javax.swing.JOptionPane;
 import modules.Book;
 import modules.LibraryManagement;
@@ -15,8 +17,9 @@ import modules.interfacesmodules.IBook;
  * @author Rosbel
  */
 public class AddBooks extends javax.swing.JDialog {
-    
-    LibraryManagement libraryManagement = null;
+  
+    private DefaultListModel<String> listModel;
+    private LibraryManagement libraryManagement = null;
 
     /**
      * Creates new form AddBooks
@@ -28,7 +31,16 @@ public class AddBooks extends javax.swing.JDialog {
     public AddBooks(LibraryManagement libraryManagement){
         this.libraryManagement = libraryManagement;
         initComponents();
+        initListModel();
          this.setLocationRelativeTo(null);
+    }
+    
+    private void initListModel() {
+        listModel = new DefaultListModel<>();
+        for (IBook book: libraryManagement.getLibros()){
+            listModel.addElement(book.getTitle());
+        }
+        jList1.setModel(listModel);
     }
 
     /**
@@ -59,6 +71,10 @@ public class AddBooks extends javax.swing.JDialog {
         jDesktopPane3 = new javax.swing.JDesktopPane();
         jButton2 = new javax.swing.JButton();
         jLabel8 = new javax.swing.JLabel();
+        jButton3 = new javax.swing.JButton();
+        jScrollPane2 = new javax.swing.JScrollPane();
+        jScrollPane1 = new javax.swing.JScrollPane();
+        jList1 = new javax.swing.JList<>();
 
         javax.swing.GroupLayout jDesktopPane2Layout = new javax.swing.GroupLayout(jDesktopPane2);
         jDesktopPane2.setLayout(jDesktopPane2Layout);
@@ -232,8 +248,23 @@ public class AddBooks extends javax.swing.JDialog {
 
         jLabel8.setIcon(new javax.swing.ImageIcon(getClass().getResource("/interfazGrafica/imagen/logo.png"))); // NOI18N
 
+        jButton3.setFont(new java.awt.Font("Segoe UI Black", 1, 18)); // NOI18N
+        jButton3.setText("Editar");
+        jButton3.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton3ActionPerformed(evt);
+            }
+        });
+
+        jList1.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
+        jScrollPane1.setViewportView(jList1);
+
+        jScrollPane2.setViewportView(jScrollPane1);
+
         jDesktopPane3.setLayer(jButton2, javax.swing.JLayeredPane.DEFAULT_LAYER);
         jDesktopPane3.setLayer(jLabel8, javax.swing.JLayeredPane.DEFAULT_LAYER);
+        jDesktopPane3.setLayer(jButton3, javax.swing.JLayeredPane.DEFAULT_LAYER);
+        jDesktopPane3.setLayer(jScrollPane2, javax.swing.JLayeredPane.DEFAULT_LAYER);
 
         javax.swing.GroupLayout jDesktopPane3Layout = new javax.swing.GroupLayout(jDesktopPane3);
         jDesktopPane3.setLayout(jDesktopPane3Layout);
@@ -241,8 +272,15 @@ public class AddBooks extends javax.swing.JDialog {
             jDesktopPane3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jDesktopPane3Layout.createSequentialGroup()
                 .addContainerGap()
-                .addComponent(jButton2)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 534, Short.MAX_VALUE)
+                .addGroup(jDesktopPane3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                    .addGroup(jDesktopPane3Layout.createSequentialGroup()
+                        .addGap(0, 0, Short.MAX_VALUE)
+                        .addComponent(jButton3))
+                    .addGroup(jDesktopPane3Layout.createSequentialGroup()
+                        .addComponent(jButton2)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 25, Short.MAX_VALUE)
+                        .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 497, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                .addGap(0, 12, Short.MAX_VALUE)
                 .addComponent(jLabel8)
                 .addContainerGap())
         );
@@ -251,9 +289,12 @@ public class AddBooks extends javax.swing.JDialog {
             .addGroup(jDesktopPane3Layout.createSequentialGroup()
                 .addContainerGap()
                 .addGroup(jDesktopPane3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(jButton2)
                     .addComponent(jLabel8)
-                    .addComponent(jButton2))
-                .addContainerGap(337, Short.MAX_VALUE))
+                    .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 298, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(18, 18, 18)
+                .addComponent(jButton3)
+                .addContainerGap(36, Short.MAX_VALUE))
         );
 
         jTabbedPane2.addTab("Lista de libro", jDesktopPane3);
@@ -266,7 +307,7 @@ public class AddBooks extends javax.swing.JDialog {
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jTabbedPane2, javax.swing.GroupLayout.DEFAULT_SIZE, 430, Short.MAX_VALUE)
+            .addComponent(jTabbedPane2)
         );
 
         pack();
@@ -293,6 +334,9 @@ public class AddBooks extends javax.swing.JDialog {
 
     private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
         // TODO add your handling code here:
+         PantallaFuncional botonInicial = new PantallaFuncional();
+        botonInicial.setVisible(true);
+        this.dispose();
     }//GEN-LAST:event_jButton2ActionPerformed
 
     private void addBookBtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_addBookBtnActionPerformed
@@ -304,7 +348,13 @@ public class AddBooks extends javax.swing.JDialog {
             if (vidBook.isEmpty() || vtitle.isEmpty() || vauthor.isEmpty() || vgenre.isEmpty())
                 JOptionPane.showMessageDialog(this, " Todos los componentes son obligatorios" , " Error " , JOptionPane.ERROR_MESSAGE );
             addBook(vidBook, vtitle, vgenre, vyearRelease, vauthor);  // TODO add your handling code here:
+            listModel.clear();
+            initListModel();
     }//GEN-LAST:event_addBookBtnActionPerformed
+
+    private void jButton3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton3ActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jButton3ActionPerformed
 
     
        private IBook createBook(String idBook, String title, String genre, int yearRelease,  String author ){
@@ -363,6 +413,7 @@ public class AddBooks extends javax.swing.JDialog {
     private javax.swing.JTextField idText;
     private javax.swing.JButton jButton1;
     private javax.swing.JButton jButton2;
+    private javax.swing.JButton jButton3;
     private javax.swing.JDesktopPane jDesktopPane1;
     private javax.swing.JDesktopPane jDesktopPane2;
     private javax.swing.JDesktopPane jDesktopPane3;
@@ -373,6 +424,9 @@ public class AddBooks extends javax.swing.JDialog {
     private javax.swing.JLabel jLabel5;
     private javax.swing.JLabel jLabel7;
     private javax.swing.JLabel jLabel8;
+    private javax.swing.JList<String> jList1;
+    private javax.swing.JScrollPane jScrollPane1;
+    private javax.swing.JScrollPane jScrollPane2;
     private javax.swing.JTabbedPane jTabbedPane2;
     private javax.swing.JTextField titleText;
     private javax.swing.JSpinner yearReleaseText;
