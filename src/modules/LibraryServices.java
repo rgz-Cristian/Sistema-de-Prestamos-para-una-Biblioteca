@@ -16,25 +16,23 @@ public class LibraryServices implements ILibraryServices{
     private List<IBook> books = new ArrayList<>();
     private List<Register> registers = new ArrayList<>();
 
-    public List<IBook> getLibros() {
+    @Override
+    public List<IBook> getBooks() {
         return books;
     }
 
-    public void setLibros(List<IBook> books) {
+    @Override
+    public void setBooks(List<IBook> books) {
         this.books = books;
     }
 
+    @Override
     public List<Register> getRegistros() {
         return registers;
     }
 
     public void setRegistros(List<Register> registers) {
         this.registers = registers;
-    }
-
-    @Override
-    public void toRegisterBook(IBook book) {
-        this.books.add(book);
     }
 
     @Override

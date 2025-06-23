@@ -16,15 +16,15 @@ public class LibraryServicesTest {
 
 
     private final List<Register> mockRegisters = instance.getRegistros();
-    private final List<IBook> mockBooks = instance.getLibros();
+    private final List<IBook> mockBooks = instance.getBooks();
     
     
     
 
     @Test
-    public void testGetLibros() {
+    public void testGetBooks() {
         //When
-        List<IBook> result = instance.getLibros();
+        List<IBook> result = instance.getBooks();
         
         //Then
         assertEquals(mockBooks, result);
@@ -32,12 +32,12 @@ public class LibraryServicesTest {
 
 
     @Test
-    public void testSetLibros() {
+    public void testSetBooks() {
         //Given
         List<IBook> books = mockBooks;
         
         //Then
-        instance.setLibros(books);
+        instance.setBooks(books);
     }
 
 
