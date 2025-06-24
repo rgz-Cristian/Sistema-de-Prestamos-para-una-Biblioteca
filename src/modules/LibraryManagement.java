@@ -11,10 +11,7 @@ public class LibraryManagement implements ILibraryServices{
     public LibraryManagement(ILibraryServices service){
         this.service = service;
     }
-    
-    public List<IBook> getLibros() {
-        return new LibraryServices().getLibros();
-    }
+
     
     @Override
     public void setBooks(List<IBook> books) {
