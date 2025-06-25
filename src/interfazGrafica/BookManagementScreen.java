@@ -173,6 +173,16 @@ public class BookManagementScreen extends javax.swing.JDialog {
 
     private void deleteButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_deleteButtonActionPerformed
         // TODO add your handling code here:
+        Book book = (Book) listBooks.getSelectedValue();
+        if (book != null){
+            int confirmDialog = JOptionPane.showConfirmDialog(null, "Desea eliminar", "Confirmar eliminación", JOptionPane.YES_NO_OPTION, JOptionPane.WARNING_MESSAGE);
+            if (confirmDialog == JOptionPane.YES_OPTION){
+                libraryManagement.deleteByID(book.getIdBook());
+                initListModel();
+            }
+        }else {
+            JOptionPane.showMessageDialog(null, "Seleccione un libro");
+        }
     }//GEN-LAST:event_deleteButtonActionPerformed
 
     private void jButton3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton3ActionPerformed
