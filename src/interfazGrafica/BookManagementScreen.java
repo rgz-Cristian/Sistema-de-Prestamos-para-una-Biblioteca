@@ -106,6 +106,11 @@ public class BookManagementScreen extends javax.swing.JDialog {
         });
 
         jButton4.setText("Editar Libro");
+        jButton4.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton4ActionPerformed(evt);
+            }
+        });
 
         refreshButton.setText("Refrescar");
         refreshButton.addActionListener(new java.awt.event.ActionListener() {
@@ -172,6 +177,18 @@ public class BookManagementScreen extends javax.swing.JDialog {
 
     private void jButton3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton3ActionPerformed
         // TODO add your handling code here:
+        Book book = (Book) listBooks.getSelectedValue();
+        if (book != null){
+            JOptionPane.showMessageDialog(null,
+                    "Libro: " + "ID = " + book.getIdBook() + 
+                            ", Título = " + book.getTitle() + 
+                            ", Autor = " + book.getAuthor() + 
+                            ", Género = " + book.getGenre() + 
+                            ", Año de Lanzamiento = " + book.getYearRelease() + 
+                            ", Disponible = " + (book.getIsAvailable()?"Si":"No"));
+        }else {
+            JOptionPane.showMessageDialog(null, "Seleccione un libro");
+        }
     }//GEN-LAST:event_jButton3ActionPerformed
 
     private void addButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_addButtonActionPerformed
@@ -184,6 +201,17 @@ public class BookManagementScreen extends javax.swing.JDialog {
         // TODO add your handling code here:
         initListModel();
     }//GEN-LAST:event_refreshButtonActionPerformed
+
+    private void jButton4ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton4ActionPerformed
+        // TODO add your handling code here:
+        IBook book = listBooks.getSelectedValue();
+        if (book != null){
+            EditBooksScreen formEditBooksScreen = new EditBooksScreen(libraryManagement, book);
+            formEditBooksScreen.setVisible(true);
+        }else {
+            JOptionPane.showMessageDialog(null, "Seleccione un libro");
+        }
+    }//GEN-LAST:event_jButton4ActionPerformed
 
     /**
      * @param args the command line arguments

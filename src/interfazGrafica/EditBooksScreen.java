@@ -8,33 +8,37 @@ package interfazGrafica;
 import javax.swing.JOptionPane;
 import modules.Book;
 import modules.LibraryManagement;
+import modules.interfacesmodules.IBook;
 
 /**
  *
  * @author Rosbel
  */
-public class AddBooksScreen extends javax.swing.JDialog {
+public class EditBooksScreen extends javax.swing.JDialog {
     
     private LibraryManagement libraryManagement = null;
+    IBook book = null;
 
     /**
-     * Creates new form AddBooksScreen
+     * Creates new form EditBooksScreen
      */
-    public AddBooksScreen(java.awt.Frame parent, boolean modal) {
+    public EditBooksScreen(java.awt.Frame parent, boolean modal) {
         super(parent, modal);
     }
-    
-    public AddBooksScreen(LibraryManagement libraryManagement){
+    public EditBooksScreen(LibraryManagement libraryManagement, IBook book) {
         this.libraryManagement = libraryManagement;
+        this.book = book;
         initComponents();
-    }
-    
-    
-    
-    private void AddBooks(){
-        
+        setTextFields();
     }
 
+    
+    private void setTextFields(){
+        iDTextField.setText(book.getIdBook());
+        titleTextField.setText(book.getTitle());
+        authorTextField.setText(book.getAuthor());
+        genreTextField.setText(book.getGenre());
+    }
     /**
      * This method is called from within the constructor to initialize the form.
      * WARNING: Do NOT modify this code. The content of this method is always
@@ -45,6 +49,7 @@ public class AddBooksScreen extends javax.swing.JDialog {
     private void initComponents() {
 
         addButton = new javax.swing.JButton();
+        Género = new javax.swing.JLabel();
         iDTextField = new javax.swing.JTextField();
         titleTextField = new javax.swing.JTextField();
         authorTextField = new javax.swing.JTextField();
@@ -54,7 +59,6 @@ public class AddBooksScreen extends javax.swing.JDialog {
         AñoPublicacion = new javax.swing.JLabel();
         Título = new javax.swing.JLabel();
         id = new javax.swing.JLabel();
-        Género = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
 
@@ -64,6 +68,9 @@ public class AddBooksScreen extends javax.swing.JDialog {
                 addButtonActionPerformed(evt);
             }
         });
+
+        Género.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
+        Género.setText("Género");
 
         authorTextField.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -84,9 +91,6 @@ public class AddBooksScreen extends javax.swing.JDialog {
 
         id.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
         id.setText("ID");
-
-        Género.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
-        Género.setText("Género");
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -110,7 +114,7 @@ public class AddBooksScreen extends javax.swing.JDialog {
                             .addComponent(authorTextField)
                             .addComponent(genreTextField, javax.swing.GroupLayout.DEFAULT_SIZE, 435, Short.MAX_VALUE)
                             .addComponent(yearReleaseNumberSelector, javax.swing.GroupLayout.PREFERRED_SIZE, 91, javax.swing.GroupLayout.PREFERRED_SIZE))))
-                .addContainerGap(103, Short.MAX_VALUE))
+                .addContainerGap(148, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -145,10 +149,6 @@ public class AddBooksScreen extends javax.swing.JDialog {
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
-    private void authorTextFieldActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_authorTextFieldActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_authorTextFieldActionPerformed
-
     private void addButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_addButtonActionPerformed
         // TODO add your handling code here:
         String idBook = iDTextField.getText();
@@ -159,24 +159,24 @@ public class AddBooksScreen extends javax.swing.JDialog {
         if (idBook.isEmpty() || title.isEmpty() || author.isEmpty() || genre.isEmpty())
             JOptionPane.showMessageDialog(null, "Todos los campos son necesarios");
         else{
-            if (libraryManagement.findByID(idBook) != null)
-                JOptionPane.showMessageDialog(null, "El ID " + idBook + " ya existe");
+            if (libraryManagement.findByID(idBook) == book || libraryManagement.findByID(idBook) == null ){
+                book.setIdBook(idBook);
+                book.setGenre(genre);
+                book.setAuthor(author);
+                book.setTitle(title);
+                JOptionPane.showMessageDialog(null, "Libro Editado");
+            }
             else {
-                libraryManagement.addBook(new Book(idBook, title, genre, yearRel, true, author));
-                JOptionPane.showMessageDialog(null, "Book Added");
-                cleanTextField();
+                JOptionPane.showMessageDialog(null, "Corrija el ID introducido");
+
             }
         }
-
     }//GEN-LAST:event_addButtonActionPerformed
 
-    
-    private void cleanTextField(){
-        iDTextField.setText("");
-        titleTextField.setText("");
-        authorTextField.setText("");
-        genreTextField.setText("");
-    }
+    private void authorTextFieldActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_authorTextFieldActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_authorTextFieldActionPerformed
+
     /**
      * @param args the command line arguments
      */
@@ -194,13 +194,13 @@ public class AddBooksScreen extends javax.swing.JDialog {
                 }
             }
         } catch (ClassNotFoundException ex) {
-            java.util.logging.Logger.getLogger(AddBooksScreen.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(EditBooksScreen.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (InstantiationException ex) {
-            java.util.logging.Logger.getLogger(AddBooksScreen.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(EditBooksScreen.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (IllegalAccessException ex) {
-            java.util.logging.Logger.getLogger(AddBooksScreen.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(EditBooksScreen.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (javax.swing.UnsupportedLookAndFeelException ex) {
-            java.util.logging.Logger.getLogger(AddBooksScreen.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(EditBooksScreen.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         }
         //</editor-fold>
 
@@ -232,4 +232,6 @@ public class AddBooksScreen extends javax.swing.JDialog {
     private javax.swing.JTextField titleTextField;
     private javax.swing.JSpinner yearReleaseNumberSelector;
     // End of variables declaration//GEN-END:variables
+
+
 }
