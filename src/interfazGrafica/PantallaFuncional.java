@@ -262,9 +262,8 @@ public class PantallaFuncional extends javax.swing.JFrame {
 
     private void LoanManagementScreenActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_LoanManagementScreenActionPerformed
         // TODO add your handling code here:
-         LoanManagementScreen prestados = new LoanManagementScreen ();
+         LoanManagementScreen prestados = new LoanManagementScreen (libraryManagement);
         prestados.setVisible(true);
-        this.dispose();
     }//GEN-LAST:event_LoanManagementScreenActionPerformed
 
     private void jButton3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton3ActionPerformed
@@ -306,6 +305,7 @@ public class PantallaFuncional extends javax.swing.JFrame {
 
         /* Create and display the form */
         java.awt.EventQueue.invokeLater(new Runnable() {
+            @Override
             public void run() {
                 new PantallaFuncional().setVisible(true);
             }

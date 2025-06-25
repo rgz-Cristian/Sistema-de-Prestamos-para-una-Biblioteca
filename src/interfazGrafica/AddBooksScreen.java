@@ -145,10 +145,6 @@ public class AddBooksScreen extends javax.swing.JDialog {
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
-    private void authorTextFieldActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_authorTextFieldActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_authorTextFieldActionPerformed
-
     private void addButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_addButtonActionPerformed
         // TODO add your handling code here:
         String idBook = iDTextField.getText();
@@ -163,12 +159,16 @@ public class AddBooksScreen extends javax.swing.JDialog {
                 JOptionPane.showMessageDialog(null, "El ID " + idBook + " ya existe");
             else {
                 libraryManagement.addBook(new Book(idBook, title, genre, yearRel, true, author));
-                JOptionPane.showMessageDialog(null, "Book Added");
+                JOptionPane.showMessageDialog(null, "Libro Añadido");
                 cleanTextField();
             }
         }
 
     }//GEN-LAST:event_addButtonActionPerformed
+
+    private void authorTextFieldActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_authorTextFieldActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_authorTextFieldActionPerformed
 
     
     private void cleanTextField(){

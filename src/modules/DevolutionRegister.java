@@ -19,5 +19,10 @@ public class DevolutionRegister extends Register{
     public void setDevolutionDate(Date devolutionDate) {
         this.devolutionDate = devolutionDate;
     }
+
+    @Override
+    public String toString() {
+        return "DevolutionRegister";
+    }
     
 }
