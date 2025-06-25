@@ -21,9 +21,6 @@ public class Book implements IBook {
         this.isAvailable = isAvailable;
     }
 
-    public Book(String textoID, String textoTitulo, String textoAutor, String textoGenero, int anio) {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
-    }
     @Override
     public String getIdBook() {
         return idBook;
@@ -78,6 +75,13 @@ public class Book implements IBook {
     public boolean getIsAvailable() {
         return isAvailable;
     }
+
+    @Override
+    public String toString() {
+        return title + ", " + author;
+    }
+    
+    
     
    
 }

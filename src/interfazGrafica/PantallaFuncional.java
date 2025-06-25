@@ -117,6 +117,11 @@ public class PantallaFuncional extends javax.swing.JFrame {
         jButton3.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
         jButton3.setPreferredSize(new java.awt.Dimension(63, 77));
         jButton3.setVerticalTextPosition(javax.swing.SwingConstants.BOTTOM);
+        jButton3.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton3ActionPerformed(evt);
+            }
+        });
         jToolBar1.add(jButton3);
 
         jSeparator9.setBackground(new java.awt.Color(255, 255, 255));
@@ -241,7 +246,6 @@ public class PantallaFuncional extends javax.swing.JFrame {
         // TODO add your handling code here:
     BookManagementScreen addBookForm = new BookManagementScreen (libraryManagement);
         addBookForm.setVisible(true);
-        this.dispose();
     }//GEN-LAST:event_BookManagementScreenActionPerformed
 
     private void botonBuscarLibroActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_botonBuscarLibroActionPerformed
@@ -258,10 +262,17 @@ public class PantallaFuncional extends javax.swing.JFrame {
 
     private void LoanManagementScreenActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_LoanManagementScreenActionPerformed
         // TODO add your handling code here:
-         LoanManagementScreen addBookForm = new LoanManagementScreen (libraryManagement);
-        addBookForm.setVisible(true);
+         LoanManagementScreen prestados = new LoanManagementScreen ();
+        prestados.setVisible(true);
         this.dispose();
     }//GEN-LAST:event_LoanManagementScreenActionPerformed
+
+    private void jButton3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton3ActionPerformed
+        // TODO add your handling code here:
+        ReturnManagementScreen addBookFor = new ReturnManagementScreen ();
+        addBookFor.setVisible(true);
+        this.dispose();
+    }//GEN-LAST:event_jButton3ActionPerformed
 
     /**
      * @param args the command line arguments
