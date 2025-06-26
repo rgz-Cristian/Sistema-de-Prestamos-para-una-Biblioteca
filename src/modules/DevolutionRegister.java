@@ -10,6 +10,7 @@ public class DevolutionRegister extends Register{
     public DevolutionRegister(String idRegister, IBook book, Date devolutionDate) {
         super(idRegister, book);
         this.devolutionDate = devolutionDate;
+        book.setIsAvailable(true);
     }
 
     public Date getDevolutionDate() {

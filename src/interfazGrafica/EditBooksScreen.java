@@ -164,7 +164,9 @@ public class EditBooksScreen extends javax.swing.JDialog {
                 book.setGenre(genre);
                 book.setAuthor(author);
                 book.setTitle(title);
+                book.setYearRelease(yearRel);
                 JOptionPane.showMessageDialog(null, "Libro Editado");
+                this.setVisible(false);
             }
             else {
                 JOptionPane.showMessageDialog(null, "Corrija el ID introducido");

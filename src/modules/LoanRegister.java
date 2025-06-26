@@ -14,6 +14,7 @@ public class LoanRegister extends Register{
         this.idUser = idUser;
         this.loanDate = loanDate;
         this.devolutionHopedDate = devolutionHopedDate;
+        book.setIsAvailable(false);
     }
 
     public String getIdUser() {

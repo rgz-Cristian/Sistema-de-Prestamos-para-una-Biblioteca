@@ -17,9 +17,9 @@ import modules.Register;
  */
 public class LoanManagementScreen extends javax.swing.JDialog {
 
-    DefaultListModel<DevolutionRegister> modelDev;
+    DefaultListModel<Register> modelDev;
     
-    DefaultListModel<LoanRegister> modelPres;
+    DefaultListModel<Register> modelPres;
 
     LibraryManagement libraryManagement = null;
     /**
@@ -31,17 +31,21 @@ public class LoanManagementScreen extends javax.swing.JDialog {
     
      public LoanManagementScreen(LibraryManagement libraryManagement) {
          this.libraryManagement = libraryManagement;
+         modelDev = new DefaultListModel<>();
+         modelPres = new DefaultListModel<>();
+         initListModel();
          initComponents();
     }
     
         private void initListModel() {
             modelDev.clear();
+            modelPres.clear();
             for (Register r: libraryManagement.getRegistros()){
                 if (r instanceof DevolutionRegister)
-                    modelDev.addElement((DevolutionRegister) r);
+                    modelDev.addElement( r);
             for (Register y: libraryManagement.getRegistros())
                 if ( r instanceof LoanRegister)
-                    modelPres.addElement((LoanRegister) r);
+                    modelPres.addElement(r);
             listPrestamos.setModel(modelPres);
             listDevolutions.setModel(modelDev);
            }
@@ -181,7 +185,7 @@ public class LoanManagementScreen extends javax.swing.JDialog {
             }
         });
 
-        jButton4.setText("Editar Libro");
+        jButton4.setText("Editar Registro");
         jButton4.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jButton4ActionPerformed(evt);
@@ -278,7 +282,9 @@ public class LoanManagementScreen extends javax.swing.JDialog {
 
     private void jButton4ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton4ActionPerformed
         // TODO add your handling code here:
-
+        Register r = listDevolutions.getSelectedValue();
+        EditDevolutionRegisterScreen form = new EditDevolutionRegisterScreen(libraryManagement, r);
+        form.setVisible(true);
     }//GEN-LAST:event_jButton4ActionPerformed
 
     private void refreshButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_refreshButtonActionPerformed
@@ -368,8 +374,8 @@ public class LoanManagementScreen extends javax.swing.JDialog {
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JTabbedPane jTabbedPane1;
     private javax.swing.JScrollPane listDevlutionRegisters;
-    private javax.swing.JList<DevolutionRegister> listDevolutions;
-    private javax.swing.JList<LoanRegister> listPrestamos;
+    private javax.swing.JList<Register> listDevolutions;
+    private javax.swing.JList<Register> listPrestamos;
     private javax.swing.JButton refreshButton;
     private javax.swing.JButton refreshButton1;
     // End of variables declaration//GEN-END:variables
