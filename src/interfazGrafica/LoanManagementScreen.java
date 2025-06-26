@@ -6,6 +6,8 @@
 package interfazGrafica;
 
 import javax.swing.DefaultListModel;
+import javax.swing.JOptionPane;
+import modules.Book;
 import modules.DevolutionRegister;
 import modules.LibraryManagement;
 import modules.LoanRegister;
@@ -30,11 +32,11 @@ public class LoanManagementScreen extends javax.swing.JDialog {
     }
     
      public LoanManagementScreen(LibraryManagement libraryManagement) {
+        initComponents();
          this.libraryManagement = libraryManagement;
          modelDev = new DefaultListModel<>();
          modelPres = new DefaultListModel<>();
          initListModel();
-         initComponents();
     }
     
         private void initListModel() {
@@ -65,7 +67,6 @@ public class LoanManagementScreen extends javax.swing.JDialog {
         listDevlutionRegisters = new javax.swing.JScrollPane();
         listPrestamos = new javax.swing.JList<>();
         addButtonPres = new javax.swing.JButton();
-        deleteButton1 = new javax.swing.JButton();
         jButton5 = new javax.swing.JButton();
         jButton6 = new javax.swing.JButton();
         refreshButton1 = new javax.swing.JButton();
@@ -73,7 +74,6 @@ public class LoanManagementScreen extends javax.swing.JDialog {
         jScrollPane1 = new javax.swing.JScrollPane();
         listDevolutions = new javax.swing.JList<>();
         addButtonDev = new javax.swing.JButton();
-        deleteButton = new javax.swing.JButton();
         jButton3 = new javax.swing.JButton();
         jButton4 = new javax.swing.JButton();
         refreshButton = new javax.swing.JButton();
@@ -81,10 +81,11 @@ public class LoanManagementScreen extends javax.swing.JDialog {
         jLabel2 = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
+        setResizable(false);
 
         listDevlutionRegisters.setViewportView(listPrestamos);
 
-        addButtonPres.setText("Añadir Libro");
+        addButtonPres.setText("Añadir Préstamo");
         addButtonPres.addAncestorListener(new javax.swing.event.AncestorListener() {
             public void ancestorMoved(javax.swing.event.AncestorEvent evt) {
             }
@@ -100,13 +101,6 @@ public class LoanManagementScreen extends javax.swing.JDialog {
             }
         });
 
-        deleteButton1.setText("Eliminar");
-        deleteButton1.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                deleteButton1ActionPerformed(evt);
-            }
-        });
-
         jButton5.setText("Mostrar");
         jButton5.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -114,7 +108,7 @@ public class LoanManagementScreen extends javax.swing.JDialog {
             }
         });
 
-        jButton6.setText("Editar Libro");
+        jButton6.setText("Editar Préstamo");
         jButton6.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jButton6ActionPerformed(evt);
@@ -138,12 +132,10 @@ public class LoanManagementScreen extends javax.swing.JDialog {
                 .addComponent(addButtonPres, javax.swing.GroupLayout.PREFERRED_SIZE, 115, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(18, 18, 18)
                 .addComponent(jButton6, javax.swing.GroupLayout.PREFERRED_SIZE, 115, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(18, 18, 18)
-                .addComponent(refreshButton1, javax.swing.GroupLayout.DEFAULT_SIZE, 203, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 239, Short.MAX_VALUE)
+                .addComponent(refreshButton1, javax.swing.GroupLayout.PREFERRED_SIZE, 115, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(18, 18, 18)
                 .addComponent(jButton5, javax.swing.GroupLayout.PREFERRED_SIZE, 115, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(18, 18, 18)
-                .addComponent(deleteButton1, javax.swing.GroupLayout.PREFERRED_SIZE, 115, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addContainerGap())
         );
         jPanel1Layout.setVerticalGroup(
@@ -153,7 +145,6 @@ public class LoanManagementScreen extends javax.swing.JDialog {
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(addButtonPres)
-                    .addComponent(deleteButton1)
                     .addComponent(jButton5)
                     .addComponent(jButton6)
                     .addComponent(refreshButton1))
@@ -168,13 +159,6 @@ public class LoanManagementScreen extends javax.swing.JDialog {
         addButtonDev.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 addButtonDevActionPerformed(evt);
-            }
-        });
-
-        deleteButton.setText("Eliminar");
-        deleteButton.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                deleteButtonActionPerformed(evt);
             }
         });
 
@@ -209,12 +193,10 @@ public class LoanManagementScreen extends javax.swing.JDialog {
                 .addComponent(addButtonDev, javax.swing.GroupLayout.PREFERRED_SIZE, 115, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(18, 18, 18)
                 .addComponent(jButton4, javax.swing.GroupLayout.PREFERRED_SIZE, 115, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(18, 18, 18)
-                .addComponent(refreshButton, javax.swing.GroupLayout.DEFAULT_SIZE, 217, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 253, Short.MAX_VALUE)
+                .addComponent(refreshButton, javax.swing.GroupLayout.PREFERRED_SIZE, 115, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(18, 18, 18)
                 .addComponent(jButton3, javax.swing.GroupLayout.PREFERRED_SIZE, 115, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(18, 18, 18)
-                .addComponent(deleteButton, javax.swing.GroupLayout.PREFERRED_SIZE, 115, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addContainerGap())
         );
         jPanel2Layout.setVerticalGroup(
@@ -224,7 +206,6 @@ public class LoanManagementScreen extends javax.swing.JDialog {
                 .addGap(18, 18, 18)
                 .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(addButtonDev)
-                    .addComponent(deleteButton)
                     .addComponent(jButton3)
                     .addComponent(jButton4)
                     .addComponent(refreshButton))
@@ -270,13 +251,18 @@ public class LoanManagementScreen extends javax.swing.JDialog {
         formAddBook.setVisible(true);
     }//GEN-LAST:event_addButtonDevActionPerformed
 
-    private void deleteButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_deleteButtonActionPerformed
-        // TODO add your handling code here:
-
-    }//GEN-LAST:event_deleteButtonActionPerformed
-
     private void jButton3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton3ActionPerformed
         // TODO add your handling code here:
+        Register register = listDevolutions.getSelectedValue();
+        if (register != null){
+            JOptionPane.showMessageDialog(null,
+                    "Registro: " + "ID = " + register.getIdRegister() + 
+                            ", Título = " + register.getBook().getTitle() + 
+                            ", Autor = " + register.getBook().getAuthor() + 
+                            ", Dia = " + ((DevolutionRegister)register).getDevolutionDate());
+        }else {
+            JOptionPane.showMessageDialog(null, "Seleccione un Registro");
+        }
 
     }//GEN-LAST:event_jButton3ActionPerformed
 
@@ -294,14 +280,23 @@ public class LoanManagementScreen extends javax.swing.JDialog {
 
     private void addButtonPresActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_addButtonPresActionPerformed
         // TODO add your handling code here:
+        CreateLoanRegisterScreen form = new CreateLoanRegisterScreen(libraryManagement);
+        form.setVisible(true);
     }//GEN-LAST:event_addButtonPresActionPerformed
-
-    private void deleteButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_deleteButton1ActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_deleteButton1ActionPerformed
 
     private void jButton5ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton5ActionPerformed
         // TODO add your handling code here:
+        LoanRegister register = (LoanRegister) listPrestamos.getSelectedValue();
+        if (register != null){
+            JOptionPane.showMessageDialog(null,
+                    "Registro: " + "ID = " + register.getIdRegister() + 
+                            ", Título = " + register.getBook().getTitle() + 
+                            ", Autor = " + register.getBook().getAuthor() + 
+                            ", Fecha Esperada = " + register.getDevolutionHopedDate() +
+                            ", Fecha Registrada = " + register.getLoanDate());
+        } else {
+            JOptionPane.showMessageDialog(null, "Seleccione un Registro");
+        }
     }//GEN-LAST:event_jButton5ActionPerformed
 
     private void jButton6ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton6ActionPerformed
@@ -310,6 +305,7 @@ public class LoanManagementScreen extends javax.swing.JDialog {
 
     private void refreshButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_refreshButton1ActionPerformed
         // TODO add your handling code here:
+        initListModel();
     }//GEN-LAST:event_refreshButton1ActionPerformed
 
     private void addButtonPresAncestorAdded(javax.swing.event.AncestorEvent evt) {//GEN-FIRST:event_addButtonPresAncestorAdded
@@ -361,8 +357,6 @@ public class LoanManagementScreen extends javax.swing.JDialog {
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton addButtonDev;
     private javax.swing.JButton addButtonPres;
-    private javax.swing.JButton deleteButton;
-    private javax.swing.JButton deleteButton1;
     private javax.swing.JButton jButton3;
     private javax.swing.JButton jButton4;
     private javax.swing.JButton jButton5;

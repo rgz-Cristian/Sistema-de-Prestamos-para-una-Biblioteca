@@ -40,7 +40,12 @@ public class LoanRegister extends Register{
     public void setDevolutionHopedDate(Date devolutionHopedDate) {
         this.devolutionHopedDate = devolutionHopedDate;
     }
-    
+
+    @Override
+    public String toString() {
+        return "Usuario: " + idUser + ", Registrado en:   " + loanDate + ", Devolución: " + devolutionHopedDate + '}';
+    }
+
     
 
 }

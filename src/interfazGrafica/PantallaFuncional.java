@@ -52,8 +52,6 @@ public class PantallaFuncional extends javax.swing.JFrame {
         jSeparator7 = new javax.swing.JToolBar.Separator();
         LoanManagementScreen = new javax.swing.JButton();
         jSeparator8 = new javax.swing.JToolBar.Separator();
-        jButton3 = new javax.swing.JButton();
-        jSeparator9 = new javax.swing.JToolBar.Separator();
         botonBuscarLibro = new javax.swing.JButton();
         jLabel1 = new javax.swing.JLabel();
         barraDeBusqueda = new javax.swing.JProgressBar();
@@ -96,7 +94,7 @@ public class PantallaFuncional extends javax.swing.JFrame {
         jToolBar1.add(jSeparator7);
 
         LoanManagementScreen.setIcon(new javax.swing.ImageIcon(getClass().getResource("/interfazGrafica/imagen/prestado.png"))); // NOI18N
-        LoanManagementScreen.setText("Prestados");
+        LoanManagementScreen.setText("Registros");
         LoanManagementScreen.setFocusable(false);
         LoanManagementScreen.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
         LoanManagementScreen.setVerticalTextPosition(javax.swing.SwingConstants.BOTTOM);
@@ -110,23 +108,6 @@ public class PantallaFuncional extends javax.swing.JFrame {
         jSeparator8.setBackground(new java.awt.Color(255, 255, 255));
         jSeparator8.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
         jToolBar1.add(jSeparator8);
-
-        jButton3.setIcon(new javax.swing.ImageIcon(getClass().getResource("/interfazGrafica/imagen/devolver.png"))); // NOI18N
-        jButton3.setText("Delvolver");
-        jButton3.setFocusable(false);
-        jButton3.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
-        jButton3.setPreferredSize(new java.awt.Dimension(63, 77));
-        jButton3.setVerticalTextPosition(javax.swing.SwingConstants.BOTTOM);
-        jButton3.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton3ActionPerformed(evt);
-            }
-        });
-        jToolBar1.add(jButton3);
-
-        jSeparator9.setBackground(new java.awt.Color(255, 255, 255));
-        jSeparator9.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
-        jToolBar1.add(jSeparator9);
 
         botonBuscarLibro.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
         botonBuscarLibro.setText("Buscar ");
@@ -262,16 +243,9 @@ public class PantallaFuncional extends javax.swing.JFrame {
 
     private void LoanManagementScreenActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_LoanManagementScreenActionPerformed
         // TODO add your handling code here:
-         LoanManagementScreen prestados = new LoanManagementScreen (libraryManagement);
+         LoanManagementScreen prestados = new LoanManagementScreen(libraryManagement);
         prestados.setVisible(true);
     }//GEN-LAST:event_LoanManagementScreenActionPerformed
-
-    private void jButton3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton3ActionPerformed
-        // TODO add your handling code here:
-        ReturnManagementScreen addBookFor = new ReturnManagementScreen ();
-        addBookFor.setVisible(true);
-        this.dispose();
-    }//GEN-LAST:event_jButton3ActionPerformed
 
     /**
      * @param args the command line arguments
@@ -318,7 +292,6 @@ public class PantallaFuncional extends javax.swing.JFrame {
     private javax.swing.JProgressBar barraDeBusqueda;
     private javax.swing.JButton botonBuscarLibro;
     private javax.swing.ButtonGroup buttonGroup;
-    private javax.swing.JButton jButton3;
     private javax.swing.JDesktopPane jDesktopPane1;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
@@ -330,7 +303,6 @@ public class PantallaFuncional extends javax.swing.JFrame {
     private javax.swing.JToolBar.Separator jSeparator10;
     private javax.swing.JToolBar.Separator jSeparator7;
     private javax.swing.JToolBar.Separator jSeparator8;
-    private javax.swing.JToolBar.Separator jSeparator9;
     private javax.swing.JTextField jTextField1;
     private javax.swing.JToolBar jToolBar1;
     // End of variables declaration//GEN-END:variables

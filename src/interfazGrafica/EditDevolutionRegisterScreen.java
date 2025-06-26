@@ -31,6 +31,7 @@ public class EditDevolutionRegisterScreen extends javax.swing.JDialog {
         this.registerSelected = register;
         this.libraryManagement = libraryManagement;
         initComponents();
+        cleanTextField();
     }
     
     private void updateRegistro(String iDRegistro, IBook book){
@@ -55,6 +56,7 @@ public class EditDevolutionRegisterScreen extends javax.swing.JDialog {
         jLabel1 = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
+        setResizable(false);
 
         Título.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
         Título.setText("ID Libro");
@@ -134,15 +136,14 @@ public class EditDevolutionRegisterScreen extends javax.swing.JDialog {
             else {
                 updateRegistro(idRegistro, book);
                 JOptionPane.showMessageDialog(null, "Registro de Devolución editado");
-                cleanTextField();
                 this.setVisible(false);
             }
         }
     }//GEN-LAST:event_editButtonActionPerformed
 
     private void cleanTextField(){
-        iDRegistroTextField.setText("");
-        iDLibroTextField.setText("");
+        iDRegistroTextField.setText(registerSelected.getIdRegister());
+        iDLibroTextField.setText(registerSelected.getBook().getIdBook());
     }
 
     /**

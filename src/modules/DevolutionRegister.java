@@ -23,7 +23,7 @@ public class DevolutionRegister extends Register{
 
     @Override
     public String toString() {
-        return "DevolutionRegister";
+        return "ID Registro: " + idRegister + ", IDBook " + book.getIdBook();
     }
     
 }
