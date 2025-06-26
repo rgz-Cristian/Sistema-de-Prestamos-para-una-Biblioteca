@@ -56,6 +56,7 @@ public class EditDevolutionRegisterScreen extends javax.swing.JDialog {
         jLabel1 = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
+        setAutoRequestFocus(false);
         setResizable(false);
 
         Título.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
@@ -121,6 +122,7 @@ public class EditDevolutionRegisterScreen extends javax.swing.JDialog {
         );
 
         pack();
+        setLocationRelativeTo(null);
     }// </editor-fold>//GEN-END:initComponents
 
     private void editButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_editButtonActionPerformed

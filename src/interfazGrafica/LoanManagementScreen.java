@@ -81,6 +81,7 @@ public class LoanManagementScreen extends javax.swing.JDialog {
         jLabel2 = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
+        setAutoRequestFocus(false);
         setResizable(false);
 
         listDevlutionRegisters.setViewportView(listPrestamos);
@@ -243,6 +244,7 @@ public class LoanManagementScreen extends javax.swing.JDialog {
         );
 
         pack();
+        setLocationRelativeTo(null);
     }// </editor-fold>//GEN-END:initComponents
 
     private void addButtonDevActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_addButtonDevActionPerformed

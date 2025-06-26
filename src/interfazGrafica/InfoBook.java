@@ -20,15 +20,17 @@ public class InfoBook extends javax.swing.JDialog {
     LibraryManagement libraryManagement = null;
     
 
-    /** Creates new form InfoBook */
+    /** Creates new form InfoBook
+     * @param parent
+     * @param modal */
     public InfoBook(java.awt.Frame parent, boolean modal) {
         super(parent, modal);
-        initComponents();
     }
     
     public InfoBook(LibraryManagement libraryManagement, IBook book) {
-        TextAboutBook.setText(book.getTitle());
-        textIdBook.setText(book.getIdBook());
+        initComponents();
+        TextAboutBook.setText("Titulo: " + book.getTitle() + "\r\nAutor: " + book.getAuthor());
+        textIdBook.setText("ID del Libro: " + book.getIdBook());
         this.book = book;
         this.libraryManagement = libraryManagement;
         
@@ -49,9 +51,12 @@ public class InfoBook extends javax.swing.JDialog {
         deleteButton = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
+        setAutoRequestFocus(false);
 
+        TextAboutBook.setFont(new java.awt.Font("Sans Serif Collection", 1, 14)); // NOI18N
         TextAboutBook.setText("jLabel1");
 
+        textIdBook.setFont(new java.awt.Font("Sans Serif Collection", 1, 14)); // NOI18N
         textIdBook.setText("jLabel1");
 
         editButton.setText("Editar");
@@ -72,34 +77,33 @@ public class InfoBook extends javax.swing.JDialog {
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(layout.createSequentialGroup()
-                .addGap(255, 255, 255)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                .addGap(27, 27, 27)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(textIdBook)
                     .addComponent(TextAboutBook))
-                .addContainerGap(286, Short.MAX_VALUE))
-            .addGroup(layout.createSequentialGroup()
-                .addGap(87, 87, 87)
-                .addComponent(editButton)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addComponent(deleteButton)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 396, Short.MAX_VALUE)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                    .addComponent(deleteButton, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(editButton, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                 .addGap(53, 53, 53))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addGap(23, 23, 23)
-                .addComponent(TextAboutBook)
+                .addContainerGap(40, Short.MAX_VALUE)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(TextAboutBook)
+                    .addComponent(editButton))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addComponent(textIdBook)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 177, Short.MAX_VALUE)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(editButton)
+                    .addComponent(textIdBook)
                     .addComponent(deleteButton))
-                .addGap(21, 21, 21))
+                .addGap(53, 53, 53))
         );
 
         pack();
+        setLocationRelativeTo(null);
     }// </editor-fold>//GEN-END:initComponents
 
     private void deleteButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_deleteButtonActionPerformed
@@ -108,6 +112,7 @@ public class InfoBook extends javax.swing.JDialog {
             int confirmDialog = JOptionPane.showConfirmDialog(null, "Desea eliminar", "Confirmar eliminación", JOptionPane.YES_NO_OPTION, JOptionPane.WARNING_MESSAGE);
             if (confirmDialog == JOptionPane.YES_OPTION){
                 libraryManagement.deleteByID(book.getIdBook());
+                this.setVisible(false);
             }
         }else {
             JOptionPane.showMessageDialog(null, "Seleccione un libro");
@@ -118,8 +123,12 @@ public class InfoBook extends javax.swing.JDialog {
         // TODO add your handling code here:
         EditBooksScreen form = new EditBooksScreen(libraryManagement, book);
         form.setVisible(true);
+        closeJDialog();
     }//GEN-LAST:event_editButtonActionPerformed
 
+    private void closeJDialog(){
+        this.setVisible(false);
+    }
     /**
      * @param args the command line arguments
      */

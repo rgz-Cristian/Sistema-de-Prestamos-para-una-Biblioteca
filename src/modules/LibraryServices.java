@@ -90,4 +90,11 @@ public class LibraryServices implements ILibraryServices{
                 ?books.remove(object)
                 :false;
     }
+    public void sortByTitle(){
+        Collections.sort(books, new ComparisonCriterionByTitle());
+    }
+    public void sortByAuthor(){
+        Collections.sort(books, new ComparisonCriterionByAuthor());
+    }
+
 }

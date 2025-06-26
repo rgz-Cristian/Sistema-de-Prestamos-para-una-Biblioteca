@@ -61,6 +61,7 @@ public class EditBooksScreen extends javax.swing.JDialog {
         id = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
+        setAutoRequestFocus(false);
 
         addButton.setText("Añadir");
         addButton.addActionListener(new java.awt.event.ActionListener() {
@@ -147,6 +148,7 @@ public class EditBooksScreen extends javax.swing.JDialog {
         );
 
         pack();
+        setLocationRelativeTo(null);
     }// </editor-fold>//GEN-END:initComponents
 
     private void addButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_addButtonActionPerformed

@@ -62,4 +62,15 @@ public class LibraryManagement implements ILibraryServices{
     public boolean deleteByID(String id) {
         return service.deleteByID(id);
     }
+
+    @Override
+    public void sortByTitle() {
+        service.sortByTitle();
+    }
+
+    @Override
+    public void sortByAuthor() {
+        service.sortByAuthor();
+    }
+    
 }

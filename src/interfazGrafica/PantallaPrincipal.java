@@ -57,7 +57,7 @@ public class PantallaPrincipal extends javax.swing.JFrame {
 
         jLabel1.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
         jLabel1.setForeground(new java.awt.Color(255, 255, 255));
-        jLabel1.setText(" operaciones  de tu tienda. Permite gestionar el inventario (registrar artículos y actualizar");
+        jLabel1.setText(" operaciones  de tu bilbioteca. Permite gestionar el inventario (registrar artículos y actualizar");
 
         jLabel3.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
         jLabel3.setForeground(new java.awt.Color(255, 255, 255));
@@ -152,6 +152,7 @@ public class PantallaPrincipal extends javax.swing.JFrame {
         );
 
         pack();
+        setLocationRelativeTo(null);
     }// </editor-fold>//GEN-END:initComponents
 
     private void botonDeRegistrarBiblotecaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_botonDeRegistrarBiblotecaActionPerformed

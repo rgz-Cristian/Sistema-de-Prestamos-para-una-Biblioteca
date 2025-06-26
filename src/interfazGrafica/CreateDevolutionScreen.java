@@ -48,6 +48,7 @@ public class CreateDevolutionScreen extends javax.swing.JDialog {
         dateData = new javax.swing.JSpinner();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
+        setAutoRequestFocus(false);
 
         Título.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
         Título.setText("ID Libro");
@@ -104,6 +105,7 @@ public class CreateDevolutionScreen extends javax.swing.JDialog {
         );
 
         pack();
+        setLocationRelativeTo(null);
     }// </editor-fold>//GEN-END:initComponents
 
     private void addButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_addButtonActionPerformed

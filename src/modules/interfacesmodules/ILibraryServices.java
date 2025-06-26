@@ -15,4 +15,6 @@ public interface ILibraryServices {
     IBook findByTitle(String title);
     IBook findByAuthor(String author);
     boolean deleteByID(String id);
+    void sortByTitle();
+    void sortByAuthor();
 }
