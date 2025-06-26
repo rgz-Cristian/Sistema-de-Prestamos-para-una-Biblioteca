@@ -5,8 +5,10 @@
  */
 package interfazGrafica;
 
+import javax.swing.JOptionPane;
 import modules.LibraryManagement;
 import modules.LibraryServices;
+import modules.interfacesmodules.IBook;
 import modules.interfacesmodules.ILibraryServices;
 
 /**
@@ -52,13 +54,13 @@ public class PantallaFuncional extends javax.swing.JFrame {
         jSeparator7 = new javax.swing.JToolBar.Separator();
         LoanManagementScreen = new javax.swing.JButton();
         jSeparator8 = new javax.swing.JToolBar.Separator();
-        botonBuscarLibro = new javax.swing.JButton();
+        botonBuscarTitulo = new javax.swing.JButton();
         jLabel1 = new javax.swing.JLabel();
         barraDeBusqueda = new javax.swing.JProgressBar();
-        jTextField1 = new javax.swing.JTextField();
+        findTextField = new javax.swing.JTextField();
         jLabel2 = new javax.swing.JLabel();
-        jRadioButton1 = new javax.swing.JRadioButton();
-        jRadioButton2 = new javax.swing.JRadioButton();
+        botonBuscarAutor = new javax.swing.JButton();
+        botonBuscarID = new javax.swing.JButton();
         jMenuBar1 = new javax.swing.JMenuBar();
         jMenu1 = new javax.swing.JMenu();
         jMenu2 = new javax.swing.JMenu();
@@ -109,11 +111,11 @@ public class PantallaFuncional extends javax.swing.JFrame {
         jSeparator8.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
         jToolBar1.add(jSeparator8);
 
-        botonBuscarLibro.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
-        botonBuscarLibro.setText("Buscar ");
-        botonBuscarLibro.addActionListener(new java.awt.event.ActionListener() {
+        botonBuscarTitulo.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
+        botonBuscarTitulo.setText("Buscar por Titulo");
+        botonBuscarTitulo.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                botonBuscarLibroActionPerformed(evt);
+                botonBuscarTituloActionPerformed(evt);
             }
         });
 
@@ -123,32 +125,30 @@ public class PantallaFuncional extends javax.swing.JFrame {
 
         jLabel2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/interfazGrafica/imagen/logo.png"))); // NOI18N
 
-        buttonGroup.add(jRadioButton1);
-        jRadioButton1.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
-        jRadioButton1.setText("Por tíulo");
-        jRadioButton1.addActionListener(new java.awt.event.ActionListener() {
+        botonBuscarAutor.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
+        botonBuscarAutor.setText("Buscar por Autor");
+        botonBuscarAutor.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jRadioButton1ActionPerformed(evt);
+                botonBuscarAutorActionPerformed(evt);
             }
         });
 
-        buttonGroup.add(jRadioButton2);
-        jRadioButton2.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
-        jRadioButton2.setText("Por Autor");
-        jRadioButton2.addActionListener(new java.awt.event.ActionListener() {
+        botonBuscarID.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
+        botonBuscarID.setText("Buscar por ID");
+        botonBuscarID.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jRadioButton2ActionPerformed(evt);
+                botonBuscarIDActionPerformed(evt);
             }
         });
 
         jDesktopPane1.setLayer(jToolBar1, javax.swing.JLayeredPane.DEFAULT_LAYER);
-        jDesktopPane1.setLayer(botonBuscarLibro, javax.swing.JLayeredPane.DEFAULT_LAYER);
+        jDesktopPane1.setLayer(botonBuscarTitulo, javax.swing.JLayeredPane.DEFAULT_LAYER);
         jDesktopPane1.setLayer(jLabel1, javax.swing.JLayeredPane.DEFAULT_LAYER);
         jDesktopPane1.setLayer(barraDeBusqueda, javax.swing.JLayeredPane.DEFAULT_LAYER);
-        jDesktopPane1.setLayer(jTextField1, javax.swing.JLayeredPane.DEFAULT_LAYER);
+        jDesktopPane1.setLayer(findTextField, javax.swing.JLayeredPane.DEFAULT_LAYER);
         jDesktopPane1.setLayer(jLabel2, javax.swing.JLayeredPane.DEFAULT_LAYER);
-        jDesktopPane1.setLayer(jRadioButton1, javax.swing.JLayeredPane.DEFAULT_LAYER);
-        jDesktopPane1.setLayer(jRadioButton2, javax.swing.JLayeredPane.DEFAULT_LAYER);
+        jDesktopPane1.setLayer(botonBuscarAutor, javax.swing.JLayeredPane.DEFAULT_LAYER);
+        jDesktopPane1.setLayer(botonBuscarID, javax.swing.JLayeredPane.DEFAULT_LAYER);
 
         javax.swing.GroupLayout jDesktopPane1Layout = new javax.swing.GroupLayout(jDesktopPane1);
         jDesktopPane1.setLayout(jDesktopPane1Layout);
@@ -158,24 +158,27 @@ public class PantallaFuncional extends javax.swing.JFrame {
                 .addComponent(jToolBar1, javax.swing.GroupLayout.PREFERRED_SIZE, 100, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGroup(jDesktopPane1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(jDesktopPane1Layout.createSequentialGroup()
-                        .addGap(5, 810, Short.MAX_VALUE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                         .addComponent(barraDeBusqueda, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addGroup(jDesktopPane1Layout.createSequentialGroup()
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jDesktopPane1Layout.createSequentialGroup()
+                        .addGap(343, 343, 343)
+                        .addComponent(botonBuscarAutor)
+                        .addGap(18, 18, 18)
+                        .addComponent(botonBuscarTitulo)
+                        .addGap(18, 18, 18)
+                        .addGroup(jDesktopPane1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addGroup(jDesktopPane1Layout.createSequentialGroup()
+                                .addGap(0, 0, Short.MAX_VALUE)
+                                .addComponent(jLabel2))
+                            .addGroup(jDesktopPane1Layout.createSequentialGroup()
+                                .addComponent(botonBuscarID)
+                                .addGap(0, 98, Short.MAX_VALUE))))
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jDesktopPane1Layout.createSequentialGroup()
                         .addGap(194, 194, 194)
                         .addComponent(jLabel1)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                        .addGroup(jDesktopPane1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addGroup(jDesktopPane1Layout.createSequentialGroup()
-                                .addComponent(jRadioButton1)
-                                .addGap(51, 51, 51)
-                                .addComponent(jRadioButton2)
-                                .addGap(0, 0, Short.MAX_VALUE))
-                            .addGroup(jDesktopPane1Layout.createSequentialGroup()
-                                .addComponent(jTextField1, javax.swing.GroupLayout.DEFAULT_SIZE, 327, Short.MAX_VALUE)
-                                .addGap(18, 18, 18)
-                                .addComponent(botonBuscarLibro)
-                                .addGap(111, 111, 111)
-                                .addComponent(jLabel2)))))
+                        .addComponent(findTextField)
+                        .addGap(109, 109, 109)))
                 .addContainerGap())
         );
         jDesktopPane1Layout.setVerticalGroup(
@@ -187,15 +190,15 @@ public class PantallaFuncional extends javax.swing.JFrame {
                         .addGap(50, 50, 50)
                         .addGroup(jDesktopPane1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                             .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 44, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(jTextField1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(botonBuscarLibro)))
+                            .addComponent(findTextField, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
                     .addGroup(jDesktopPane1Layout.createSequentialGroup()
                         .addContainerGap()
                         .addComponent(jLabel2)))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addGroup(jDesktopPane1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jRadioButton1, javax.swing.GroupLayout.Alignment.TRAILING)
-                    .addComponent(jRadioButton2, javax.swing.GroupLayout.Alignment.TRAILING))
+                .addGap(18, 18, 18)
+                .addGroup(jDesktopPane1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(botonBuscarAutor)
+                    .addComponent(botonBuscarTitulo)
+                    .addComponent(botonBuscarID))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addComponent(barraDeBusqueda, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addContainerGap())
@@ -229,23 +232,62 @@ public class PantallaFuncional extends javax.swing.JFrame {
         addBookForm.setVisible(true);
     }//GEN-LAST:event_BookManagementScreenActionPerformed
 
-    private void botonBuscarLibroActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_botonBuscarLibroActionPerformed
+    private void botonBuscarTituloActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_botonBuscarTituloActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_botonBuscarLibroActionPerformed
-
-    private void jRadioButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jRadioButton1ActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_jRadioButton1ActionPerformed
-
-    private void jRadioButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jRadioButton2ActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_jRadioButton2ActionPerformed
+        IBook book = libraryManagement.findByTitle(getTextField());
+        if (book != null){
+            InfoBook form = new InfoBook(libraryManagement, book);
+            form.setVisible(true);
+        }else {
+            JOptionPane.showMessageDialog(null, "Libro no encontrado");
+        }
+    }//GEN-LAST:event_botonBuscarTituloActionPerformed
 
     private void LoanManagementScreenActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_LoanManagementScreenActionPerformed
         // TODO add your handling code here:
          LoanManagementScreen prestados = new LoanManagementScreen(libraryManagement);
         prestados.setVisible(true);
     }//GEN-LAST:event_LoanManagementScreenActionPerformed
+
+    private void botonBuscarAutorActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_botonBuscarAutorActionPerformed
+        // TODO add your handling code here:
+        if (findTextField.getText().isEmpty()){
+            JOptionPane.showMessageDialog(null, "Llene el campo");
+        } else{
+        if (!findTextField.getText().isEmpty()){
+            JOptionPane.showMessageDialog(null, "Llene el campo");
+        } else{
+            IBook book = libraryManagement.findByAuthor(getTextField());
+            if (book != null){
+                InfoBook form = new InfoBook(libraryManagement, book);
+                form.setVisible(true);
+            }else {
+                JOptionPane.showMessageDialog(null, "Libro no encontrado");
+        } 
+        }
+        }
+
+        // Aqui abres pantalla para preguntar si editar o borrar
+    }//GEN-LAST:event_botonBuscarAutorActionPerformed
+
+    private String getTextField(){
+        return findTextField.getText();
+    }
+    
+    private void botonBuscarIDActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_botonBuscarIDActionPerformed
+        // TODO add your handling code here:4
+        if (findTextField.getText().isEmpty()){
+            JOptionPane.showMessageDialog(null, "Llene el campo");
+        } else{
+        IBook book = libraryManagement.findByID(getTextField());
+        if (book != null){
+            InfoBook form = new InfoBook(libraryManagement, book);
+            form.setVisible(true);
+        }else {
+            JOptionPane.showMessageDialog(null, "Libro no encontrado");
+        }
+        }
+    }//GEN-LAST:event_botonBuscarIDActionPerformed
 
     /**
      * @param args the command line arguments
@@ -290,20 +332,20 @@ public class PantallaFuncional extends javax.swing.JFrame {
     private javax.swing.JButton BookManagementScreen;
     private javax.swing.JButton LoanManagementScreen;
     private javax.swing.JProgressBar barraDeBusqueda;
-    private javax.swing.JButton botonBuscarLibro;
+    private javax.swing.JButton botonBuscarAutor;
+    private javax.swing.JButton botonBuscarID;
+    private javax.swing.JButton botonBuscarTitulo;
     private javax.swing.ButtonGroup buttonGroup;
+    private javax.swing.JTextField findTextField;
     private javax.swing.JDesktopPane jDesktopPane1;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JMenu jMenu1;
     private javax.swing.JMenu jMenu2;
     private javax.swing.JMenuBar jMenuBar1;
-    private javax.swing.JRadioButton jRadioButton1;
-    private javax.swing.JRadioButton jRadioButton2;
     private javax.swing.JToolBar.Separator jSeparator10;
     private javax.swing.JToolBar.Separator jSeparator7;
     private javax.swing.JToolBar.Separator jSeparator8;
-    private javax.swing.JTextField jTextField1;
     private javax.swing.JToolBar jToolBar1;
     // End of variables declaration//GEN-END:variables
 }
