@@ -68,6 +68,7 @@ public class LibraryServicesTest {
         
         //Then
         instance.addRegister(register);
+        assertEquals(register, instance.getRegistros().get(0));
     }
     
     @Test
@@ -77,6 +78,7 @@ public class LibraryServicesTest {
         
         //Then
         instance.addBook(book);
+        assertEquals(book, instance.getBooks().get(0));
     }
 
 
