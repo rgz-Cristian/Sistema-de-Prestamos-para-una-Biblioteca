@@ -1,6 +1,7 @@
 
 package modules;
 
+import java.util.ArrayList;
 import java.util.List;
 import modules.interfacesmodules.IBook;
 import modules.interfacesmodules.ILibraryServices;
@@ -14,22 +15,22 @@ public class LibraryManagement implements ILibraryServices{
 
     
     @Override
-    public void setBooks(List<IBook> books) {
+    public void setBooks(ArrayList<IBook> books) {
         service.setBooks(books);
     }
     
     @Override
-    public List<IBook> getBooks() {
+    public ArrayList<IBook> getBooks() {
         return service.getBooks();
     }
     
     @Override
-    public void setRegistros(List<Register> registers){
+    public void setRegistros(ArrayList<Register> registers){
         service.setRegistros(registers);
     }
     
     @Override
-    public List<Register> getRegistros(){
+    public ArrayList<Register> getRegistros(){
         return service.getRegistros();
     }
 
