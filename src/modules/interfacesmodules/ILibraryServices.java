@@ -1,14 +1,14 @@
 
 package modules.interfacesmodules;
 
-import java.util.List;
+import java.util.ArrayList;
 import modules.Register;
 
 public interface ILibraryServices {
-    void setRegistros(List<Register> registro);
-    List<Register> getRegistros();
-    void setBooks(List<IBook> books);
-    List<IBook> getBooks();
+    void setRegistros(ArrayList<Register> registro);
+    ArrayList<Register> getRegistros();
+    void setBooks(ArrayList<IBook> books);
+    ArrayList<IBook> getBooks();
     void addRegister(Register register);
     void addBook(IBook book);
     IBook findByID(String id);

@@ -3,7 +3,6 @@ package modules;
 
 import java.util.ArrayList;
 import java.util.Collections;
-import java.util.List;
 import modules.auxclass.ComparisonCriterionByAuthor;
 import modules.auxclass.ComparisonCriterionById;
 import modules.auxclass.ComparisonCriterionByTitle;
@@ -13,26 +12,26 @@ import modules.interfacesmodules.ILibraryServices;
 
 public class LibraryServices implements ILibraryServices{
     
-    private List<IBook> books = new ArrayList<>();
-    private List<Register> registers = new ArrayList<>();
+    private ArrayList<IBook> books = new ArrayList<>();
+    private ArrayList<Register> registers = new ArrayList<>();
 
     @Override
-    public List<IBook> getBooks() {
+    public ArrayList<IBook> getBooks() {
         return books;
     }
 
     @Override
-    public void setBooks(List<IBook> books) {
+    public void setBooks(ArrayList<IBook> books) {
         this.books = books;
     }
 
     @Override
-    public List<Register> getRegistros() {
+    public ArrayList<Register> getRegistros() {
         return registers;
     }
 
     @Override
-    public void setRegistros(List<Register> registers) {
+    public void setRegistros(ArrayList<Register> registers) {
         this.registers = registers;
     }
 

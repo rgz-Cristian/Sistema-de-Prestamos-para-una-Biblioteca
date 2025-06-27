@@ -1,6 +1,7 @@
 
 package modules;
 
+import java.util.ArrayList;
 import java.util.List;
 import modules.interfacesmodules.IBook;
 import org.junit.Test;
@@ -15,8 +16,8 @@ public class LibraryServicesTest {
     LibraryServices instance = new LibraryServices();
 
 
-    private final List<Register> mockRegisters = instance.getRegistros();
-    private final List<IBook> mockBooks = instance.getBooks();
+    private final ArrayList<Register> mockRegisters = instance.getRegistros();
+    private final ArrayList<IBook> mockBooks = instance.getBooks();
     
     
     
@@ -34,7 +35,7 @@ public class LibraryServicesTest {
     @Test
     public void testSetBooks() {
         //Given
-        List<IBook> books = mockBooks;
+        ArrayList<IBook> books = mockBooks;
         
         //Then
         instance.setBooks(books);
@@ -44,7 +45,7 @@ public class LibraryServicesTest {
     @Test
     public void testGetRegistros() {
         //When
-        List<Register> result = instance.getRegistros();
+        ArrayList<Register> result = instance.getRegistros();
         
         //Then
         assertEquals(mockRegisters, result);
@@ -54,7 +55,7 @@ public class LibraryServicesTest {
     @Test
     public void testSetRegistros() {
         //Given
-        List<Register> registers = mockRegisters;
+        ArrayList<Register> registers = mockRegisters;
         
         //Then
         instance.setRegistros(registers);

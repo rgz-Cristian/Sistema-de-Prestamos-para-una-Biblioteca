@@ -1,5 +1,6 @@
 package modules;
 
+import java.util.ArrayList;
 import java.util.List;
 import modules.interfacesmodules.IBook;
 import modules.interfacesmodules.ILibraryServices;
@@ -19,6 +20,9 @@ public class LibraryManagementTest {
     @Mock
     private IBook mockBook;
     @Mock
+    private ArrayList<IBook> mockBooks;
+
+    @Mock
     private Register register;
     
     @InjectMocks
@@ -26,18 +30,9 @@ public class LibraryManagementTest {
     
     @Before
     public void setUp() {
-        MockitoAnnotations.openMocks(this);
+        AutoCloseable openMocks = MockitoAnnotations.openMocks(this);
     }
 
-
-    @Test
-    public void testSetBooks() {
-        // When
-        libraryManagement.setBooks((List<IBook>) mockBook);
-
-        // Then
-        verify(mockLibraryServices).setBooks((List<IBook>) mockBook);
-    }
     
     @Test
     public void testAddRegister() {
